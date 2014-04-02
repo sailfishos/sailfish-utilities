@@ -1,0 +1,4 @@
+* Set of miscellaneous tools for Sailfish OS
+
+Those tools are tiny, can be temporary hacks and tweaks to solve
+different maintenance tasks or fix/workaround known issues
