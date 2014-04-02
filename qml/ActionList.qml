@@ -14,6 +14,12 @@ Column {
     }
 
     width: parent.width
+    spacing: Theme.paddingLarge
+
+    PageHeader {
+        title: "Sailfish Tools"
+    }
+
     ActionItem {
         actionName: "Clean backup storage"
         description: "Clean backup storage to free space occupied by backups."
