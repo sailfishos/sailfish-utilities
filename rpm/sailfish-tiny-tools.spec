@@ -10,6 +10,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:  sailfishsilica-qt5
 Requires: cutes-js >= 0.8
 Requires: cutes >= 0.8
+Requires: jolla-settings-system >= 0.1.69
+Requires: nemo-qml-plugin-notifications-qt5
+Requires: nemo-qml-plugin-systemsettings
+Requires: nemo-qml-plugin-dbus-qt5
 BuildRequires: cmake >= 2.8
 
 %description

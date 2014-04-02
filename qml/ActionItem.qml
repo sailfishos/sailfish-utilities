@@ -12,35 +12,45 @@ Item {
     property string remorseText: ""
     property string url: ""
     property bool requiresReboot: false
-    property bool inProgress: false
+    property bool deviceLockRequired: true
 
-    BusyIndicator {
-        anchors.centerIn: parent
-        size: BusyIndicatorSize.Large
-        running: inProgress
+    signal done(string name)
+    signal error(string name, string error)
+
+    Component.onCompleted: {
+        self.done.connect(actionList.done);
+        self.error.connect(actionList.error);
     }
 
     function executeAction() {
-        inProgress = true;
         var on_reply = function() {
-            inProgress = false;
+            mainPage.inProgress = false;
             console.log("Done:", actionName);
+            self.done(actionName);
             if (requiresReboot)
-                dsmeDbus.call("req_reboot", []);
+                reboot();
         };
-        var on_error = function(e) {
-            inProgress = false;
+        var on_error = function(err) {
+            mainPage.inProgress = false;
             // TODO show error message
             console.log(actionName, " error:", err);
+            self.error(actionName, err);
         };
-        action(on_reply, on_error);
+        var go = function() {
+            console.log("Start", actionName);
+            mainPage.inProgress = true;
+            action(on_reply, on_error);
+        };
+        if (deviceLockRequired) {
+            requestLockCode(go);
+        } else {
+            go();
+        }
     }
 
     Column {
         id: dataArea
         spacing: Theme.paddingSmall
-        opacity: inProgress ? 0.0 : 1.0
-        Behavior on opacity { FadeAnimation {} }
         anchors {
             left: parent.left
             right: parent.right
