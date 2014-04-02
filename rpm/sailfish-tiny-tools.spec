@@ -6,7 +6,6 @@ License: TODO
 Group: System Environment/Tools
 URL: https://github.com/sailfish/sailfish-tiny-tools
 Source0: %{name}-%{version}.tar.bz2
-BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:  sailfishsilica-qt5
 Requires: cutes-js >= 0.8
@@ -36,3 +35,4 @@ rm -rf %{buildroot}
 %{_datadir}/applications/sailfish-tiny-tools.desktop
 %{_datadir}/sailfish-tiny-tools/*.qml
 %{_datadir}/sailfish-tiny-tools/*.js
+%{_datadir}/sailfish-tiny-tools/repair_rpm_db.sh
