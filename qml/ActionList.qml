@@ -40,43 +40,4 @@ Column {
             });
         }
     }
-
-    ActionItem {
-        actionName: "SHOW ERROR"
-        description: "SOME ERROR"
-
-        function action(on_reply, on_error) {
-            on_error("GOT EXPECTED ERROR");
-        }
-    }
-
-    ActionItem {
-        actionName: "SHOW OK"
-        description: "SOME DUMMY ACTION"
-
-        function action(on_reply, on_error) {
-            on_reply("IT WAS OK");
-        }
-    }
-
-    ActionItem {
-        actionName: "SHOW ERROR"
-        description: "SOME ERROR w/o lock code"
-        deviceLockRequired: false
-
-        function action(on_reply, on_error) {
-            on_error("GOT EXPECTED ERROR w/o code");
-        }
-    }
-
-    ActionItem {
-        actionName: "SHOW OK"
-        description: "SOME DUMMY ACTION /w remorse"
-        remorseText: "Executing something dummy"
-
-        function action(on_reply, on_error) {
-            on_reply("IT WAS OK");
-        }
-    }
-
 }
