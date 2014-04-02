@@ -1,0 +1,17 @@
+*~
+CMakeCache*
+CMakeFiles*
+cmake_install.cmake
+*.o
+Makefile
+cscope*
+*.so
+*.so.*
+*.a
+moc_*
+*automoc.cpp
+install_manifest.txt
+doc/doxygen
+*.moc
+*.*_parameters
+\#*\#
