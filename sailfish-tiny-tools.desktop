@@ -2,6 +2,6 @@
 Type=Application
 Name=Tiny Tools
 Icon=icons-Applications-filemanager
-Exec=cutes /usr/share/sailfish-tiny-tools/Main.qml
+Exec=invoker --type=silica-qt5 -s /usr/bin/sailfish-tiny-tools
 Comment=Sailfish Tiny Tools
 X-Desktop-File-Install-Version=0.20

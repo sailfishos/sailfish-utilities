@@ -14,6 +14,12 @@ Requires: jolla-settings-system >= 0.1.69
 Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-systemsettings
 Requires: nemo-qml-plugin-dbus-qt5
+Requires:  mapplauncherd-booster-silica-qt5
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(qdeclarative5-boostable)
 BuildRequires: cmake >= 2.8
 
 %description
@@ -35,6 +41,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+%{_bindir}/sailfish-tiny-tools
 %{_bindir}/repair_rpm_db
 %{_datadir}/applications/sailfish-tiny-tools.desktop
 %{_datadir}/sailfish-tiny-tools/*.qml
