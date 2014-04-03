@@ -40,4 +40,18 @@ Column {
             });
         }
     }
+
+    ActionItem {
+        actionName: "Clean tracker dabatase"
+        description: "Clean tracker dabatabase. It can help in cases with " +
+            "with missing images, audio files etc."
+        url: "https://together.jolla.com/question/4337/refresh-tracker/"
+        deviceLockRequired: false
+
+        function action(on_reply, on_error) {
+            tools.request("cleanTrackerDb", {}, {
+                on_reply: on_reply, on_error: on_error
+            });
+        }
+    }
 }
