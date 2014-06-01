@@ -13,5 +13,5 @@ exports.cleanRpmDb = function(msg, ctx) {
 
 exports.cleanTrackerDb = function(msg, ctx) {
     var os = require("os");
-    os.system("tracker-control" ["-krs"]);
+    os.system("tracker-control", ["-krs"]);
 };
