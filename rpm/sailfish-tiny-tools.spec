@@ -16,11 +16,6 @@ Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-systemsettings
 Requires: nemo-qml-plugin-dbus-qt5
 Requires:  mapplauncherd-booster-silica-qt5
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Qml)
-BuildRequires:  pkgconfig(Qt5Quick)
-BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(qdeclarative5-boostable)
 BuildRequires: cmake >= 2.8
 
 %description
@@ -42,9 +37,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/sailfish-tiny-tools
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
-%{_datadir}/applications/sailfish-tiny-tools.desktop
 %{_datadir}/sailfish-tiny-tools/*.qml
 %{_datadir}/sailfish-tiny-tools/*.js
 %{_datadir}/sailfish-tiny-tools/repair_rpm_db.sh
