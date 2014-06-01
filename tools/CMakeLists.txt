@@ -1,11 +1,11 @@
-configure_file(repair_rpm_db.c.in repair_rpm_db.c @ONLY)
-add_executable(repair_rpm_db repair_rpm_db.c)
+configure_file(config.hpp.in config.hpp @ONLY)
+add_executable(sailfish_tools_system_action sailfish_tools_system_action.cpp)
 
 
 install(TARGETS
-      repair_rpm_db
+      sailfish_tools_system_action
       DESTINATION bin
-      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE SETUID
+      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ SETUID
 )
 
 install(PROGRAMS

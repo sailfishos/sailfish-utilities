@@ -8,8 +8,15 @@ set(prefix ${CMAKE_INSTALL_PREFIX})
 set(DEPLOYMENT_PATH ${prefix}/share/sailfish-tiny-tools/)
 find_package(Qt5Core REQUIRED)
 set(CMAKE_AUTOMOC TRUE)
+
 set(CMAKE_CXX_FLAGS
   "${CMAKE_CXX_FLAGS} -DDEPLOYMENT_PATH=\"\\\"\"${DEPLOYMENT_PATH}\"\\\"\" -fPIC -W -Wall -Wextra -Werror -g -O2 -std=c++0x")
+
+#-Wno-psabi is to remove next g++ warning/note:
+#the mangling of 'va_list' has changed in GCC 4.4
+set(CMAKE_CXX_FLAGS
+  "${CMAKE_CXX_FLAGS} -Wno-psabi")
+
 include_directories(
   ${PROJECT_SOURCE_DIR}/sailfishapplication
   )

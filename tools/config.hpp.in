@@ -1,0 +1,10 @@
+#ifndef _PRIVATE_CONFIG_HPP_
+#define _PRIVATE_CONFIG_HPP_
+
+#include <string>
+
+namespace {
+std::string prefix("@prefix@");
+}
+
+#endif // _PRIVATE_CONFIG_HPP_

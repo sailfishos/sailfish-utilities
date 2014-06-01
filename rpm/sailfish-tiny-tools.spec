@@ -43,7 +43,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{_bindir}/sailfish-tiny-tools
-%{_bindir}/repair_rpm_db
+%attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
 %{_datadir}/applications/sailfish-tiny-tools.desktop
 %{_datadir}/sailfish-tiny-tools/*.qml
 %{_datadir}/sailfish-tiny-tools/*.js
