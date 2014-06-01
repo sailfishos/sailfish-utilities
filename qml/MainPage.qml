@@ -11,6 +11,8 @@ Page {
     id: mainPage
     property bool inProgress: false
 
+    backNavigation: !inProgress
+
     CutesActor {
         id: tools
         source: "./tools.js"
