@@ -15,6 +15,33 @@ Column {
     }
 
     ActionItem {
+        actionName: "Restart Alien Dalvik"
+        deviceLockRequired: false
+        description: "Restart subsystem providing support to run "
+            + "Android applications. Try to use it if Android applications can't be "
+            + " started or stuck etc."
+
+        function action(on_reply, on_error) {
+            tools.request("restartAlien", {}, {
+                on_reply: on_reply, on_error: on_error
+            });
+        }
+    }
+
+    ActionItem {
+        actionName: "Restart network"
+        deviceLockRequired: false
+        description: "Restart network subsystem if anything wrong happened with "
+            + "connectivity (WLAN, mobile data)"
+
+        function action(on_reply, on_error) {
+            tools.request("restartNetwork", {}, {
+                on_reply: on_reply, on_error: on_error
+            });
+        }
+    }
+
+    ActionItem {
         actionName: "Clean backup storage"
         description: "Clean backup storage to free space occupied by backups."
             + " All backups will be removed"
@@ -55,4 +82,5 @@ Column {
             });
         }
     }
+
 }

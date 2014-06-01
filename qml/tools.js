@@ -19,3 +19,6 @@ exports.cleanTrackerDb = function(msg, ctx) {
     var os = require("os");
     os.system("tracker-control", ["-krs"]);
 };
+
+exports.restartAlien = make_system_action("restart_dalvik");
+exports.restartNetwork = make_system_action("restart_network");
