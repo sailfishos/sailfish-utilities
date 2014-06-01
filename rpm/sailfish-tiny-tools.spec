@@ -10,6 +10,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:  sailfishsilica-qt5
 Requires: cutes-js >= 0.8
 Requires: cutes >= 0.8
+Requires: qt5-qtdeclarative-systeminfo
 Requires: jolla-settings-system >= 0.1.69
 Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-systemsettings
@@ -47,3 +48,4 @@ rm -rf %{buildroot}
 %{_datadir}/sailfish-tiny-tools/*.qml
 %{_datadir}/sailfish-tiny-tools/*.js
 %{_datadir}/sailfish-tiny-tools/repair_rpm_db.sh
+%{_datadir}/jolla-settings/entries/utilities.json

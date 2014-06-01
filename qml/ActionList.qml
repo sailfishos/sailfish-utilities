@@ -44,7 +44,8 @@ Column {
     ActionItem {
         actionName: "Clean tracker dabatase"
         description: "Clean tracker dabatabase. It can help in cases with " +
-            "with missing images, audio files etc."
+            "with missing images, audio files etc. Processes using tracker " +
+            "will be closed, tracker reindexing will be started"
         url: "https://together.jolla.com/question/4337/refresh-tracker/"
         deviceLockRequired: false
 
