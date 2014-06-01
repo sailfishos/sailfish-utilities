@@ -36,16 +36,9 @@ Item {
             console.log(actionName, " error:", err);
             self.error(actionName, err);
         };
-        var go = function() {
-            console.log("Start", actionName);
-            mainPage.inProgress = true;
-            action(on_reply, on_error);
-        };
-        if (deviceLockRequired) {
-            requestLockCode(go);
-        } else {
-            go();
-        }
+        console.log("Start", actionName);
+        mainPage.inProgress = true;
+        action(on_reply, on_error);
     }
 
     Column {
@@ -104,9 +97,17 @@ Item {
             height: Theme.itemSizeSmall
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: 200
-            onClicked: remorseText
-                ? remorseAction(remorseText, executeAction, 5000)
-                : executeAction()
+            onClicked: {
+                var executeAfterRemorse = function() {
+                    remorseAction(remorseText, executeAction, 5000);
+                };
+                var fn = remorseText ? executeAfterRemorse : executeAction;
+                if (deviceLockRequired) {
+                    requestLockCode(fn);
+                } else {
+                    fn();
+                }
+            }
         }
     }
 }
