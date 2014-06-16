@@ -67,8 +67,8 @@ Page {
     function actionIsDone(category, message) {
         console.log("Notify", message);
         notification.category = (category === "error")
-            ? "x-sailfish.sailfish-tiny-tools.error"
-            : "x-sailfish.sailfish-tiny-tools.info";
+            ? "x-sailfish.sailfish-utilities.error"
+            : "x-sailfish.sailfish-utilities.info";
         notification.previewBody = "Sailfish Tiny Tools";
         notification.previewSummary = message;
         notification.publish();
@@ -92,7 +92,7 @@ Page {
     }
     Notification {
         id: notification
-        category: "x-sailfish.sailfish-tiny-tools.error"
+        category: "x-sailfish.sailfish-utilities.error"
     }
 
     BusyIndicator {

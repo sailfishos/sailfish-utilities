@@ -9,7 +9,7 @@
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
-    app->setApplicationName("sailfish-tiny-tools");
+    app->setApplicationName("sailfish-utilities");
     QScopedPointer<QQuickView> view(Sailfish::createView());
     view->setTitle("Sailfish Tiny Tools");
     Sailfish::setSource(view.data(), "Main.qml");

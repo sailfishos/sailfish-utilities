@@ -13,5 +13,5 @@ install(TARGETS
 
 install(PROGRAMS
       repair_rpm_db.sh
-      DESTINATION share/sailfish-tiny-tools
+      DESTINATION share/sailfish-utilities
 )

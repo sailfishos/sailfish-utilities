@@ -22,7 +22,7 @@ typedef std::function<int (int, char *[])> action_type;
 
 int repair_rpm_db(int, char *[])
 {
-    return system((prefix + "/share/sailfish-tiny-tools/repair_rpm_db.sh").c_str());
+    return system((application_dir + "/repair_rpm_db.sh").c_str());
 }
 
 static char buf[512];

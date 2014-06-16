@@ -3,5 +3,5 @@ FILE(GLOB QML_FILES *.qml)
 
 install(
   FILES ${JS_FILES} ${QML_FILES} ${SVG_FILES}
-  DESTINATION share/sailfish-tiny-tools
+  DESTINATION share/${PACKAGE_NAME}
   )

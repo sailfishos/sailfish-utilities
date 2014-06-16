@@ -1,10 +1,13 @@
-PROJECT(SAILFISH_TINY_TOOLS)
+PROJECT(SAILFISH_UTILITIES)
 cmake_minimum_required(VERSION 2.8)
 
-install(FILES utilities.json DESTINATION share/jolla-settings/entries)
 set(prefix ${CMAKE_INSTALL_PREFIX})
 
-set(DEPLOYMENT_PATH ${prefix}/share/sailfish-tiny-tools/)
+set(PACKAGE_NAME sailfish-utilities)
+set(DEPLOYMENT_PATH ${prefix}/share/${PACKAGE_NAME})
+
+configure_file(utilities.json.in utilities.json @ONLY)
+install(FILES utilities.json DESTINATION share/jolla-settings/entries)
 
 add_subdirectory(qml)
 add_subdirectory(tools)

@@ -18,3 +18,5 @@ doc/doxygen
 tools/repair_rpm_db.c
 tools/repair_rpm_db
 sailfish-tiny-tools
+utilities.json
+tools/config.hpp

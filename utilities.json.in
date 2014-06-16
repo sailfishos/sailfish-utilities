@@ -16,7 +16,7 @@
             "icon": "image://theme/icon-m-health",
             "order": 200,
             "params": {
-                "source": "/usr/share/sailfish-tiny-tools/MainPage.qml"
+                "source": "@DEPLOYMENT_PATH@/MainPage.qml"
             }
         }
     ]

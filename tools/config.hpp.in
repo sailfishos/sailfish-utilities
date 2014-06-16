@@ -5,6 +5,8 @@
 
 namespace {
 std::string prefix("@prefix@");
+std::string application_dir("@DEPLOYMENT_PATH@");
+
 }
 
 #endif // _PRIVATE_CONFIG_HPP_
