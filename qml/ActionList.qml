@@ -18,11 +18,13 @@ Column {
     signal error(string name, string error)
 
     PageHeader {
-        title: "Sailfish Tools"
+        //% "Sailfish Tools"
+        title: qsTrId("sailfish-tools-he-tools")
     }
 
     ActionItem {
-        actionName: "Restart Alien Dalvik"
+        //% "Restart Alien Dalvik"
+        actionName: qsTrId("sailfish-tools-restart-dalvik")
         deviceLockRequired: false
         description: "Restart subsystem providing support to run "
             + "Android applications. Try to use it if Android applications can't be "
@@ -36,7 +38,8 @@ Column {
     }
 
     ActionItem {
-        actionName: "Restart network"
+        //% "Restart network"
+        actionName: qsTrId("sailfish-tools-restart-network")
         deviceLockRequired: false
         description: "Restart network subsystem if anything wrong happened with "
             + "connectivity (WLAN, mobile data)"
@@ -49,7 +52,8 @@ Column {
     }
 
     ActionItem {
-        actionName: "Clean backup storage"
+        //% "Clean backup storage"
+        actionName: qsTrId("sailfish-tools-clean-backup")
         description: "Clean backup storage to free space occupied by backups."
             + " All backups will be removed"
         remorseText: "Removing backups"
@@ -62,7 +66,8 @@ Column {
     }
 
     ActionItem {
-        actionName: "Clean package cache"
+        //% "Clean package cache"
+        actionName: qsTrId("sailfish-tools-clean-pkg-cache")
         description: "Package cache cleaning can be tried if there are " +
             "problems with store, e.g. 'Critical problem with the app registry' error"
         url: "https://together.jolla.com/question/7988/problem-with-store-unable-to-install/"
@@ -76,7 +81,8 @@ Column {
     }
 
     ActionItem {
-        actionName: "Clean tracker dabatase"
+        //% "Clean tracker dabatase"
+        actionName: qsTrId("sailfish-tools-clean-tracker-db")
         description: "Clean tracker dabatabase. It can help in cases with " +
             "with missing images, audio files etc. Processes using tracker " +
             "will be closed, tracker reindexing will be started"

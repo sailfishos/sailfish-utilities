@@ -17,9 +17,17 @@ Requires: nemo-qml-plugin-systemsettings
 Requires: nemo-qml-plugin-dbus-qt5
 Requires:  mapplauncherd-booster-silica-qt5
 BuildRequires: cmake >= 2.8
+BuildRequires: qt5-default
+BuildRequires: qt5-qttools
+BuildRequires: qt5-qttools-linguist
 
 %description
 Miscellaneous Sailfish Utilities
+
+%package ts-devel
+Summary: Translation source for %{name}
+%description ts-devel
+Translation source for %{name}
 
 %prep
 %setup -q
@@ -42,3 +50,8 @@ rm -rf %{buildroot}
 %{_datadir}/sailfish-utilities/*.js
 %{_datadir}/sailfish-utilities/repair_rpm_db.sh
 %{_datadir}/jolla-settings/entries/utilities.json
+%{_datadir}/translations/sailfish-utilities_eng_en.qm
+
+%files ts-devel
+%defattr(-,root,root,-)
+%{_datadir}/translations/source/sailfish-utilities.ts
