@@ -1,3 +1,10 @@
+/**
+ * @file ActionItem.qml
+ * @brief Universal action item
+ * @copyright (C) 2014 Jolla Ltd.
+ * @par License: LGPL 2.1 http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ */
+
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.Silica.theme 1.0

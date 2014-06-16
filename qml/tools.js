@@ -1,3 +1,10 @@
+/**
+ * @file tools.js
+ * @brief Used by cutes agent to invoke async actions
+ * @copyright (C) 2014 Jolla Ltd.
+ * @par License: LGPL 2.1 http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ */
+
 var make_system_action = function(name) {
     return function() {
         var subprocess = require("subprocess");

@@ -1,3 +1,10 @@
+/**
+ * @file sailfish_tools_system_action.cpp
+ * @brief SUID root actions execution
+ * @copyright (C) 2014 Jolla Ltd.
+ * @par License: LGPL 2.1 http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ */
+
 #include "config.hpp"
 
 #include <stdio.h>

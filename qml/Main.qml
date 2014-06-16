@@ -1,3 +1,10 @@
+/**
+ * @file Main.qml
+ * @brief To run utilities as application
+ * @copyright (C) 2014 Jolla Ltd.
+ * @par License: LGPL 2.1 http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ */
+
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 

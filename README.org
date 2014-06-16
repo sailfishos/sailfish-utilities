@@ -1,4 +1,5 @@
-* Set of miscellaneous tools for Sailfish OS
+* Set of Utilities for Sailfish OS
 
-Those tools are tiny, can be temporary hacks and tweaks to solve
-different maintenance tasks or fix/workaround known issues
+Tools to solve different maintenance tasks or to fix/workaround known
+issues, to restart subsystems w/o restarting device, clean space,
+perform long lasting maintenance tasks etc.
