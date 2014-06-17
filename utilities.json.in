@@ -1,5 +1,5 @@
 {
-    "translation_catalog": "settings-system",
+    "translation_catalog": "settings-sailfish_utilities",
     "entries": [
         {
             "path": "system_settings/info",
@@ -11,7 +11,7 @@
         {
             "path": "system_settings/info/utilities",
             "title": "Utilities",
-            "translation_id": "settings_system-utilities",
+            "translation_id": "settings-sailfish_utilities",
             "type": "page",
             "icon": "image://theme/icon-m-health",
             "order": 200,

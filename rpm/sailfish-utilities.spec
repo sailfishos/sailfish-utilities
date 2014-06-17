@@ -50,8 +50,8 @@ rm -rf %{buildroot}
 %{_datadir}/sailfish-utilities/*.js
 %{_datadir}/sailfish-utilities/repair_rpm_db.sh
 %{_datadir}/jolla-settings/entries/utilities.json
-%{_datadir}/translations/sailfish-utilities_eng_en.qm
+%{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
 
 %files ts-devel
 %defattr(-,root,root,-)
-%{_datadir}/translations/source/sailfish-utilities.ts
+%{_datadir}/translations/source/settings-sailfish_utilities.ts
