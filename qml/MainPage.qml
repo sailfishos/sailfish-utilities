@@ -57,11 +57,18 @@ Page {
 
     function requestLockCode(on_ok) {
         var lockEntered = function() {
+            console.log("Lock code is ok");
             pageStack.pop();
             on_ok();
         }
-        var query = pageStack.push(lockQueryPage);
-        query.lockCodeConfirmed.connect(lockEntered);
+        if (!deviceLockInterface.isSet) {
+            console.log("There is no lock code, do not request it");
+            on_ok();
+        } else {
+            console.log("Requesting lock code");
+            var query = pageStack.push(lockQueryPage);
+            query.lockCodeConfirmed.connect(lockEntered);
+        }
     }
 
     function actionIsDone(category, message) {
