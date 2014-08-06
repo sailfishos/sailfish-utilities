@@ -18,8 +18,8 @@ Column {
     signal error(string name, string error)
 
     PageHeader {
-        //% "Sailfish Tools"
-        title: qsTrId("sailfish-tools-he-tools")
+        //% "Utilities"
+        title: qsTrId("sailfish-tools-utilities")
     }
 
     ActionItem {

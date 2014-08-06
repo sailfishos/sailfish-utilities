@@ -18,7 +18,8 @@ ApplicationWindow {
             anchors.centerIn: parent
             color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeMedium
-            text: "Tools"
+            //% "Utilities"
+            text: qsTrId("sailfish-tools-utilities")
         }
     }
 }
