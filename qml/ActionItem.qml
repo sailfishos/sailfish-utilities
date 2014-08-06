@@ -61,30 +61,20 @@ Item {
         Text {
             width: parent.width
             color: Theme.secondaryColor
+            textFormat: Text.StyledText
+            linkColor: Theme.primaryColor
             font.pixelSize: Theme.fontSizeExtraSmall
             wrapMode: Text.Wrap
             text: description
-        }
-        Text {
-            width: parent.width
-            id: urlText
-            visible: url !== ""
-            color: Theme.secondaryColor
-            font.pixelSize: Theme.fontSizeExtraSmall
-            font.underline: true
-            wrapMode: Text.Wrap
-            text: "Click for more information..."
-            MouseArea {
-                anchors.fill: parent
-                onClicked: Qt.openUrlExternally(url)
-            }
+            onLinkActivated: Qt.openUrlExternally(link)
         }
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             visible: requiresReboot
             color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeExtraSmall
-            text: "This action requires reboot"
+            //% "This action requires reboot"
+            text: qsTrId("sailfish-tools-me-require-reboot")
         }
         Button {
             id: btn

@@ -68,9 +68,10 @@ Column {
     ActionItem {
         //% "Clean package cache"
         actionName: qsTrId("sailfish-tools-clean-pkg-cache")
-        description: "Package cache cleaning can be tried if there are " +
-            "problems with store, e.g. 'Critical problem with the app registry' error"
-        url: "https://together.jolla.com/question/7988/problem-with-store-unable-to-install/"
+        description: "<p>Package cache cleaning can be tried if there are " +
+            "problems with store, e.g. 'Critical problem with the app registry'" +
+            " error</p><p>More information can be found " +
+            "<a href='https://together.jolla.com/question/7988/problem-with-store-unable-to-install/'>here</a></p>"
         requiresReboot: true
 
         function action(on_reply, on_error) {
@@ -83,10 +84,10 @@ Column {
     ActionItem {
         //% "Clean tracker dabatase"
         actionName: qsTrId("sailfish-tools-clean-tracker-db")
-        description: "Clean tracker dabatabase. It can help in cases with " +
+        description: "<p>Clean tracker dabatabase. It can help in cases with " +
             "with missing images, audio files etc. Processes using tracker " +
-            "will be closed, tracker reindexing will be started"
-        url: "https://together.jolla.com/question/4337/refresh-tracker/"
+            "will be closed, tracker reindexing will be started</p>" +
+            "<p>More information can be found <a href='https://together.jolla.com/question/4337/refresh-tracker/'>here</a></p>"
         deviceLockRequired: false
 
         function action(on_reply, on_error) {
