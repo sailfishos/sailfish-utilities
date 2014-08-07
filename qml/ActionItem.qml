@@ -24,6 +24,8 @@ Item {
     signal done(string name)
     signal error(string name, string error)
 
+    property var remorse: undefined
+
     Component.onCompleted: {
         self.done.connect(actionList.done);
         self.error.connect(actionList.error);
@@ -86,7 +88,8 @@ Item {
             function remorseAction(text, action, timeout) {
                 // null parent because a reference is held by RemorseItem until
                 // it either triggers or is cancelled.
-                var remorse = remorseComponent.createObject(null)
+                if (!self.remorse)
+                    remorse = remorseComponent.createObject(self)//null)
                 remorse.execute(self, text, action, timeout)
             }
 
