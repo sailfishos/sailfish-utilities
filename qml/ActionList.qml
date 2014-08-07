@@ -26,9 +26,10 @@ Column {
         //% "Restart Alien Dalvik"
         actionName: qsTrId("sailfish-tools-restart-dalvik")
         deviceLockRequired: false
-        description: "Restart subsystem providing support to run "
-            + "Android applications. Try to use it if Android applications can't be "
-            + " started or stuck etc."
+        //% "Restart subsystem providing support to run "
+        //% "Android applications. Try to use it if Android applications can't be "
+        //% " started or stuck etc."
+        description: qsTrId("sailfish-utilities-me-restart-alien-desc")
 
         function action(on_reply, on_error) {
             tools.request("restartAlien", {}, {
@@ -39,10 +40,14 @@ Column {
 
     ActionItem {
         //% "Restart network"
-        actionName: qsTrId("sailfish-tools-restart-network")
+        actionName: qsTrId("sailfish-tools-me-restart-network")
         deviceLockRequired: false
-        description: "Restart network subsystem if anything wrong happened with "
-            + "connectivity (WLAN, mobile data)"
+        //% "Restart network subsystem if anything wrong happened with "
+        //% "connectivity (WLAN, mobile data)."
+        //% "<p><b>Ignore the warning</b> asking you to restart phone because "
+        //% "<b>SIM is removed</b>. This is the side effect of the network "
+        //% "stack beeing restarted</p>"
+        description: qsTrId("sailfish-utilities-me-restart-network-desc")
 
         function action(on_reply, on_error) {
             tools.request("restartNetwork", {}, {
@@ -54,9 +59,11 @@ Column {
     ActionItem {
         //% "Clean backup storage"
         actionName: qsTrId("sailfish-tools-clean-backup")
-        description: "Clean backup storage to free space occupied by backups."
-            + " All backups will be removed"
-        remorseText: "Removing backups"
+        //% "Clean backup storage to free space occupied by backups."
+        //% " All backups will be removed"
+        description: qsTrId("sailfish-utilities-me-clean-backups-desc")
+        //% "Removing backups"
+        remorseText: qsTrId("sailfish-utilities-me-remorse-removing-backups")
 
         function action(on_reply, on_error) {
             tools.request("removeBackups", {}, {
@@ -68,10 +75,11 @@ Column {
     ActionItem {
         //% "Clean package cache"
         actionName: qsTrId("sailfish-tools-clean-pkg-cache")
-        description: "<p>Package cache cleaning can be tried if there are " +
-            "problems with store, e.g. 'Critical problem with the app registry'" +
-            " error</p><p>More information can be found " +
-            "<a href='https://together.jolla.com/question/7988/problem-with-store-unable-to-install/'>here</a></p>"
+        //% "Package cache cleaning can be tried if there are "
+        //% "problems with store, e.g. 'Critical problem with the app registry' error."
+        //% "<p>More information can be found "
+        //% "<a href='https://together.jolla.com/question/7988/problem-with-store-unable-to-install/'>here</a></p>"
+        description: qsTrId("sailfish-utilities-me-clean-pkg-cache-desc")
         requiresReboot: true
 
         function action(on_reply, on_error) {
@@ -84,10 +92,12 @@ Column {
     ActionItem {
         //% "Clean tracker dabatase"
         actionName: qsTrId("sailfish-tools-clean-tracker-db")
-        description: "<p>Clean tracker dabatabase. It can help in cases with " +
-            "with missing images, audio files etc. Processes using tracker " +
-            "will be closed, tracker reindexing will be started</p>" +
-            "<p>More information can be found <a href='https://together.jolla.com/question/4337/refresh-tracker/'>here</a></p>"
+        //% "Tracker dabatabase cleaning can help in cases with "
+        //% "missing images, audio files etc. Processes using tracker "
+        //% "will be closed, tracker reindexing will be started.</p>"
+        //% "<p>More information can be found "
+        //% "<a href='https://together.jolla.com/question/4337/refresh-tracker/'>here</a></p>"
+        description: qsTrId("sailfish-utilities-me-clean-tracker-db-desc")
         deviceLockRequired: false
 
         function action(on_reply, on_error) {

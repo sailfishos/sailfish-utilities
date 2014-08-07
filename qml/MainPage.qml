@@ -76,7 +76,8 @@ Page {
         notification.category = (category === "error")
             ? "x-sailfish.sailfish-utilities.error"
             : "x-sailfish.sailfish-utilities.info";
-        notification.previewBody = "Sailfish Tiny Tools";
+        //% "Sailfish Utilities"
+        notification.previewBody = qsTrId("sailfish-utilities-me-name");
         notification.previewSummary = message;
         notification.publish();
     }
