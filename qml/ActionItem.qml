@@ -96,7 +96,6 @@ Item {
             text: actionName
             height: Theme.itemSizeSmall
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 200
             onClicked: {
                 var executeAfterRemorse = function() {
                     remorseAction(remorseText, executeAction, 5000);
