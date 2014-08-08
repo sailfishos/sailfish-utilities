@@ -51,6 +51,8 @@ rm -rf %{buildroot}
 %{_datadir}/sailfish-utilities/repair_rpm_db.sh
 %{_datadir}/jolla-settings/entries/utilities.json
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
+%{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.error.conf
+%{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.info.conf
 
 %files ts-devel
 %defattr(-,root,root,-)
