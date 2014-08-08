@@ -52,7 +52,6 @@ Item {
 
     Column {
         id: dataArea
-        spacing: Theme.paddingSmall
         anchors {
             left: parent.left
             right: parent.right
@@ -62,20 +61,20 @@ Item {
 
         Text {
             width: parent.width
-            color: Theme.secondaryColor
+            color: Theme.highlightColor
             textFormat: Text.StyledText
             linkColor: Theme.primaryColor
-            font.pixelSize: Theme.fontSizeExtraSmall
+            font.pixelSize: Theme.fontSizeSmall
             wrapMode: Text.Wrap
             text: description
             onLinkActivated: Qt.openUrlExternally(link)
         }
+        Item { width: parent.width; height: Theme.paddingMedium }
         Label {
-            anchors.horizontalCenter: parent.horizontalCenter
             visible: requiresReboot
             color: Theme.highlightColor
-            font.pixelSize: Theme.fontSizeExtraSmall
-            //% "This action requires reboot"
+            font.pixelSize: Theme.fontSizeSmall
+            //% "This action requires reboot."
             text: qsTrId("sailfish-tools-me-require-reboot")
         }
         Button {
