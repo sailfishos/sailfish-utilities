@@ -57,11 +57,18 @@ Page {
 
     function requestLockCode(on_ok) {
         var lockEntered = function() {
+            console.log("Lock code is ok");
             pageStack.pop();
             on_ok();
         }
-        var query = pageStack.push(lockQueryPage);
-        query.lockCodeConfirmed.connect(lockEntered);
+        if (!deviceLockInterface.isSet) {
+            console.log("There is no lock code, do not request it");
+            on_ok();
+        } else {
+            console.log("Requesting lock code");
+            var query = pageStack.push(lockQueryPage);
+            query.lockCodeConfirmed.connect(lockEntered);
+        }
     }
 
     function actionIsDone(category, message) {
@@ -69,7 +76,8 @@ Page {
         notification.category = (category === "error")
             ? "x-sailfish.sailfish-utilities.error"
             : "x-sailfish.sailfish-utilities.info";
-        notification.previewBody = "Sailfish Tiny Tools";
+        //% "Sailfish Utilities"
+        notification.previewBody = qsTrId("sailfish-utilities-me-name");
         notification.previewSummary = message;
         notification.publish();
     }
@@ -86,8 +94,17 @@ Page {
             
             opacity: mainPage.inProgress ? 0.0 : 1.0
             Behavior on opacity { FadeAnimation {} }
-            onDone: mainPage.actionIsDone("info", name + ": ok")
-            onError: mainPage.actionIsDone("error", name + ": error: " + error.toString())
+            onDone: {
+                //% "%1: OK"
+                var message = qsTrId("sailfish-utilities-me-notification-ok").arg(name);
+                mainPage.actionIsDone("info", message);
+            }
+            onError: {
+                console.log(error);
+                //% "%1: failed"
+                var message = qsTrId("sailfish-utilities-me-notification-err").arg(name);
+                mainPage.actionIsDone("error", message)
+            }
         }
     }
     Notification {

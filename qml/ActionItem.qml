@@ -24,6 +24,8 @@ Item {
     signal done(string name)
     signal error(string name, string error)
 
+    property var remorse: undefined
+
     Component.onCompleted: {
         self.done.connect(actionList.done);
         self.error.connect(actionList.error);
@@ -61,30 +63,20 @@ Item {
         Text {
             width: parent.width
             color: Theme.secondaryColor
+            textFormat: Text.StyledText
+            linkColor: Theme.primaryColor
             font.pixelSize: Theme.fontSizeExtraSmall
             wrapMode: Text.Wrap
             text: description
-        }
-        Text {
-            width: parent.width
-            id: urlText
-            visible: url !== ""
-            color: Theme.secondaryColor
-            font.pixelSize: Theme.fontSizeExtraSmall
-            font.underline: true
-            wrapMode: Text.Wrap
-            text: "Click for more information..."
-            MouseArea {
-                anchors.fill: parent
-                onClicked: Qt.openUrlExternally(url)
-            }
+            onLinkActivated: Qt.openUrlExternally(link)
         }
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             visible: requiresReboot
             color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeExtraSmall
-            text: "This action requires reboot"
+            //% "This action requires reboot"
+            text: qsTrId("sailfish-tools-me-require-reboot")
         }
         Button {
             id: btn
@@ -96,14 +88,14 @@ Item {
             function remorseAction(text, action, timeout) {
                 // null parent because a reference is held by RemorseItem until
                 // it either triggers or is cancelled.
-                var remorse = remorseComponent.createObject(null)
+                if (!self.remorse)
+                    remorse = remorseComponent.createObject(self)//null)
                 remorse.execute(self, text, action, timeout)
             }
 
             text: actionName
             height: Theme.itemSizeSmall
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 200
             onClicked: {
                 var executeAfterRemorse = function() {
                     remorseAction(remorseText, executeAction, 5000);
