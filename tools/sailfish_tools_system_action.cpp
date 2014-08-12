@@ -28,7 +28,7 @@ static int restart_service(const std::string &name)
 }
 
 static struct {
-    char const *name;
+    std::string name;
     action_type fn;
 } actions[] = {
     { "repair_rpm_db", [](int, char *[]) {
@@ -48,15 +48,17 @@ int main(int argc, char *argv[])
     if (argc < 2) {
         error(1, EINVAL, "Need to provide action name");
     }
-    char const *action = argv[1];
-    for (size_t i = 0; i != sizeof(actions)/sizeof(actions[0]); ++i) {
-        if (!strcmp(action, actions[i].name)) {
-            auto rc = actions[i].fn(argc, argv);
+
+    const std::string cmd(argv[1]);
+    for (auto &action: actions) {
+        if (cmd == action.name) {
+            auto rc = action.fn(argc, argv);
             if (rc)
                 perror("Executing action");
             return rc;
         }
     }
-    error(1, EINVAL, "Unknown action: %s", action);
+
+    error(1, EINVAL, "Unknown action: %s", cmd.c_str());
     return 1; // just for compiler, error exits ^
 }
