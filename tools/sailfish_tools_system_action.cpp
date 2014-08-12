@@ -20,28 +20,20 @@
 
 typedef std::function<int (int, char *[])> action_type;
 
-int repair_rpm_db(int, char *[])
+static int restart_service(const std::string &name)
 {
-    return system((application_dir + "/repair_rpm_db.sh").c_str());
-}
-
-static char buf[512];
-static const int max_len = sizeof(buf) - 1;
-
-int restart_service(char const *name)
-{
-    int rc = snprintf(buf, max_len, "systemctl restart %s.service", name);
-    if (rc == max_len)
-        error(1, EINVAL, "Buffer is too small for %s", name);
-    std::cerr << "Executing " << buf << std::endl;
-    return system(buf);
+    std::string cmd("systemctl restart " + name + ".service");
+    std::cerr << "Executing " << cmd << std::endl;
+    return system(cmd.c_str());
 }
 
 static struct {
     char const *name;
     action_type fn;
 } actions[] = {
-    { "repair_rpm_db", repair_rpm_db },
+    { "repair_rpm_db", [](int, char *[]) {
+            return system((application_dir + "/repair_rpm_db.sh").c_str());
+        }},
     { "restart_dalvik", [](int, char *[]) {
             return restart_service("aliendalvik");
         }},
