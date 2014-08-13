@@ -76,8 +76,8 @@ Page {
         notification.category = (category === "error")
             ? "x-sailfish.sailfish-utilities.error"
             : "x-sailfish.sailfish-utilities.info";
-        //% "Sailfish Utilities"
-        notification.previewBody = qsTrId("sailfish-utilities-me-name");
+        //% "Utilities"
+        notification.previewBody = qsTrId("sailfish-utilities-no-name");
         notification.previewSummary = message;
         notification.publish();
     }
@@ -96,13 +96,13 @@ Page {
             Behavior on opacity { FadeAnimation {} }
             onDone: {
                 //% "%1: OK"
-                var message = qsTrId("sailfish-utilities-me-notification-ok").arg(name);
+                var message = qsTrId("sailfish-utilities-no-notification-ok").arg(name);
                 mainPage.actionIsDone("info", message);
             }
             onError: {
                 console.log(error);
                 //% "%1: failed"
-                var message = qsTrId("sailfish-utilities-me-notification-err").arg(name);
+                var message = qsTrId("sailfish-utilities-no-notification-err").arg(name);
                 mainPage.actionIsDone("error", message)
             }
         }
