@@ -20,6 +20,7 @@ BuildRequires: cmake >= 2.8
 BuildRequires: qt5-default
 BuildRequires: qt5-qttools
 BuildRequires: qt5-qttools-linguist
+Requires: sailfish-utilities-all-translations
 
 %description
 Miscellaneous Sailfish Utilities
