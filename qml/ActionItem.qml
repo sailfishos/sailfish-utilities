@@ -52,15 +52,14 @@ Item {
 
     Column {
         id: dataArea
-        anchors {
-            left: parent.left
-            right: parent.right
-            leftMargin: Theme.paddingLarge
-            rightMargin: Theme.paddingLarge
-        }
+        width: parent.width
 
         Text {
-            width: parent.width
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: Theme.paddingLarge
+            }
             color: Theme.highlightColor
             textFormat: Text.StyledText
             linkColor: Theme.primaryColor
@@ -71,6 +70,12 @@ Item {
         }
         Item { width: parent.width; height: Theme.paddingMedium }
         Label {
+            anchors {
+                left: parent.left
+                right: parent.right
+                margins: Theme.paddingLarge
+            }
+            wrapMode: Text.Wrap
             visible: requiresReboot
             color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
@@ -89,7 +94,7 @@ Item {
                 // it either triggers or is cancelled.
                 if (!self.remorse)
                     remorse = remorseComponent.createObject(self)//null)
-                remorse.execute(self, text, action, timeout)
+                remorse.execute(dataArea, text, action, timeout)
             }
 
             text: actionName
