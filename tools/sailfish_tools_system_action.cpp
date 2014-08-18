@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     }
 
     const std::string cmd(argv[1]);
-    for (auto &action: actions) {
+    for (const auto &action: actions) {
         if (cmd == action.name) {
             auto rc = action.fn(argc, argv);
             if (rc)
