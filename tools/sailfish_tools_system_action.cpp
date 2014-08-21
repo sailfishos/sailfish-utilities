@@ -15,50 +15,139 @@
 #include <errno.h>
 #include <string.h>
 
-#include <functional>
 #include <iostream>
+#include <sstream>
+#include <map>
 
-typedef std::function<int (int, char *[])> action_type;
+namespace utilities {
 
-static int restart_service(const std::string &name)
+namespace {
+
+struct action_ctx {};
+
+struct Error : public std::exception
 {
-    std::string cmd("systemctl restart " + name + ".service");
+    Error(std::string const &msg) : res(errno), msg_(msg) {}
+    virtual ~Error() noexcept(true) {}
+
+    virtual const char* what() const noexcept(true)
+    {
+        return (msg_ + ". errno=" + ::strerror(res)).c_str();
+    }
+
+    int res;
+    std::string msg_;
+};
+
+void system(std::string const &cmd)
+{
     std::cerr << "Executing " << cmd << std::endl;
-    return system(cmd.c_str());
+    if (::system(cmd.c_str()))
+        throw Error(cmd);
 }
 
-static struct {
-    std::string name;
-    action_type fn;
-} actions[] = {
-    { "repair_rpm_db", [](int, char *[]) {
-            return system((application_dir + "/repair_rpm_db.sh").c_str());
+void service_do(const std::string &name, const std::string &action)
+{
+    std::stringstream cmd_line;
+    cmd_line << "systemctl " << action << " " << name << ".service";
+    system(cmd_line.str());
+}
+
+void execute_own_utility(std::string const &file_name)
+{
+    system((application_dir + "/" + file_name));
+}
+
+typedef void (*action_type)(action_ctx const*);
+
+std::map<std::string, action_type> actions = {
+    { "repair_rpm_db", [](action_ctx const *) {
+            execute_own_utility("repair_rpm_db.sh");
         }},
-    { "restart_dalvik", [](int, char *[]) {
-            return restart_service("aliendalvik");
+    { "restart_dalvik", [](action_ctx const *) {
+            service_do("aliendalvik", "restart");
         }},
-    { "restart_network", [](int, char *[]) {
-            return restart_service("connman");
+    { "restart_network", [](action_ctx const *) {
+            return service_do("connman", "restart");
         }}
 };
 
+class BecomeRoot
+{
+public:
+    BecomeRoot() : uid_(escalate()) { }
+    ~BecomeRoot() {
+        if (uid_)
+            ::setuid(uid_);
+    }
+private:
+
+    static uid_t escalate()
+    {
+        auto uid = ::getuid();
+        if (uid) {
+            if (::setuid(0) < 0)
+                throw Error("Error setting root uid");
+        }
+        return uid;
+    }
+
+    uid_t uid_;
+};
+
+int exit_usage(std::string const &prog_name, int rc)
+{
+    std::stringstream s;
+    s << "Usage: " << prog_name << " [-h|--help|ACTION]\n\tACTION is one of:";
+    for (auto const &name_action : actions)
+        s << " " << name_action.first;
+
+    std::cerr << s.str() << std::endl;
+    exit(rc);
+    return rc;
+}
+
+}
+
 int main(int argc, char *argv[])
 {
-    setuid(0);
-    if (argc < 2) {
-        error(1, EINVAL, "Need to provide action name");
+    int rc = 1;
+    if (argc < 2 || !argv[1]) {
+        return exit_usage(argv[0], 1);
     }
+    const std::string name(argv[1]);
 
-    const std::string cmd(argv[1]);
-    for (const auto &action: actions) {
-        if (cmd == action.name) {
-            auto rc = action.fn(argc, argv);
-            if (rc)
-                perror("Executing action");
-            return rc;
-        }
+    if (name == "-h" || name == "--help")
+        return exit_usage(argv[0], 0);
+
+    auto execute = [](action_type const &action) {
+        BecomeRoot root;
+        action(nullptr);
+    };
+
+    auto it = actions.find(name);
+    if (it == actions.end()) {
+        return exit_usage(argv[0], 1);
     }
-
-    error(1, EINVAL, "Unknown action: %s", cmd.c_str());
-    return 1; // just for compiler, error exits ^
+    try {
+        execute(it->second);
+    } catch (std::exception const &e) {
+        std::cerr << "Error " << e.what()
+                  << ". While executing action: " << name.c_str()
+                  << std::endl;
+    } catch (...) {
+        std::cerr << "Unknown error "
+                  << ". While executing action: " << name.c_str()
+                  << std::endl;
+    }
+    rc = 0;
+    return rc;
 }
+
+}
+
+int main(int argc, char *argv[])
+{
+    return utilities::main(argc, argv);
+}
+
