@@ -41,6 +41,24 @@ Column {
         }
 
         ActionItem {
+            //% "Stop Android™ runtime"
+            actionName: qsTrId("sailfish-tools-bt-stop-android")
+            deviceLockRequired: false
+            //% "Stop Android™ runtime. It allows to conserves memory and in"
+            //% " some cases allows to conserve power."
+            //% " All Android™ applications (including ones working"
+            //% " in background e.g. instant messaging tools) will be stopped."
+            //% " Discussed <a href='https://together.jolla.com/question/20472/why-not-shutdown-aliendalvik-after-closing-last-android-app/'>here.</a>"
+            description: qsTrId("sailfish-utilities-stop-alien-desc")
+
+            function action(on_reply, on_error) {
+                tools.request("stopAlien", {}, {
+                    on_reply: on_reply, on_error: on_error
+                });
+            }
+        }
+
+        ActionItem {
             //% "Restart network"
             actionName: qsTrId("sailfish-tools-me-restart-network")
             deviceLockRequired: false
