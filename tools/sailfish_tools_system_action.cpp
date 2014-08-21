@@ -15,50 +15,103 @@
 #include <errno.h>
 #include <string.h>
 
-#include <functional>
 #include <iostream>
+#include <sstream>
+#include <map>
 
-typedef std::function<int (int, char *[])> action_type;
+namespace utilities {
 
-static int restart_service(const std::string &name)
+struct action_ctx {};
+
+static int system(std::string const &cmd)
 {
-    std::string cmd("systemctl restart " + name + ".service");
     std::cerr << "Executing " << cmd << std::endl;
-    return system(cmd.c_str());
+    auto rc = ::system(cmd.c_str());
+    std::cerr << "got " << rc << std::endl;
+    return rc;
 }
 
-static struct {
-    std::string name;
-    action_type fn;
-} actions[] = {
-    { "repair_rpm_db", [](int, char *[]) {
-            return system((application_dir + "/repair_rpm_db.sh").c_str());
+static int service_do(const std::string &name, const std::string &action)
+{
+    std::stringstream cmd_line;
+    cmd_line << "systemctl " << action << " " << name << ".service";
+    return system(cmd_line.str());
+}
+
+typedef int (*action_type)(action_ctx const*);
+
+std::map<std::string, action_type> actions = {
+    { "repair_rpm_db", [](action_ctx const *) {
+            return system((application_dir + "/repair_rpm_db.sh"));
         }},
-    { "restart_dalvik", [](int, char *[]) {
-            return restart_service("aliendalvik");
+    { "restart_dalvik", [](action_ctx const *) {
+            return service_do("aliendalvik", "restart");
         }},
-    { "restart_network", [](int, char *[]) {
-            return restart_service("connman");
+    { "restart_network", [](action_ctx const *) {
+            return service_do("connman", "restart");
         }}
 };
 
+class BecomeRoot {
+public:
+    BecomeRoot()
+    {
+        uid_ = ::geteuid();
+        if (uid_)
+            ::setuid(0);
+    }
+    ~BecomeRoot() {
+        if (uid_)
+            ::setuid(uid_);
+    }
+private:
+    uid_t uid_;
+};
+
+void exit_usage(std::string const &prog_name, int rc)
+{
+    std::stringstream s;
+    s << "Usage: " << prog_name << " [-h|--help|ACTION]\n\tACTION is one of:";
+    for (auto const &name_action : actions)
+        s << " " << name_action.first;
+
+    std::cerr << s.str() << std::endl;
+    exit(rc);
+}
+
 int main(int argc, char *argv[])
 {
-    setuid(0);
-    if (argc < 2) {
-        error(1, EINVAL, "Need to provide action name");
+    int rc = 1;
+    if (argc < 2 || !argv[1]) {
+        exit_usage(argv[0], 1);
     }
+    const std::string name(argv[1]);
 
-    const std::string cmd(argv[1]);
-    for (const auto &action: actions) {
-        if (cmd == action.name) {
-            auto rc = action.fn(argc, argv);
-            if (rc)
-                perror("Executing action");
-            return rc;
+    if (name == "-h" || name == "--help")
+        exit_usage(argv[0], 0);
+
+    auto execute = [](action_type const &action) {
+        BecomeRoot root;
+        return action(nullptr);
+    };
+
+    auto it = actions.find(name);
+    if (it != actions.end()) {
+        if (!execute(it->second)) {
+            rc = 0;
+        } else {
+            ::error(rc, errno, "Error executing action: %s", name.c_str());
         }
+    } else {
+        exit_usage(argv[0], 1);
     }
-
-    error(1, EINVAL, "Unknown action: %s", cmd.c_str());
-    return 1; // just for compiler, error exits ^
+    return rc;
 }
+
+}
+
+int main(int argc, char *argv[])
+{
+    return utilities::main(argc, argv);
+}
+
