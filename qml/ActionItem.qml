@@ -79,8 +79,8 @@ Item {
             visible: requiresReboot
             color: Theme.highlightColor
             font.pixelSize: Theme.fontSizeSmall
-            //% "This action requires reboot."
-            text: qsTrId("sailfish-tools-me-require-reboot")
+            //% "Device will be restarted"
+            text: qsTrId("sailfish-tools-device-restarted")
         }
         Button {
             id: btn
