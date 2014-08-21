@@ -13,5 +13,6 @@ install(TARGETS
 
 install(PROGRAMS
       repair_rpm_db.sh
+      restart_network.sh
       DESTINATION share/sailfish-utilities
 )
