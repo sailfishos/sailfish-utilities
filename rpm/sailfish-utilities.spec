@@ -49,7 +49,7 @@ rm -rf %{buildroot}
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
 %{_datadir}/sailfish-utilities/*.qml
 %{_datadir}/sailfish-utilities/*.js
-%{_datadir}/sailfish-utilities/repair_rpm_db.sh
+%{_datadir}/sailfish-utilities/*.sh
 %{_datadir}/jolla-settings/entries/utilities.json
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
 %{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.error.conf

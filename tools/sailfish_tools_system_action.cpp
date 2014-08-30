@@ -68,7 +68,7 @@ std::map<std::string, action_type> actions = {
             service_do("aliendalvik", "restart");
         }},
     { "restart_network", [](action_ctx const *) {
-            return service_do("connman", "restart");
+            return execute_own_utility("restart_network.sh");
         }}
 };
 
