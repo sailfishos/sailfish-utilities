@@ -28,4 +28,5 @@ exports.cleanTrackerDb = function(msg, ctx) {
 };
 
 exports.restartAlien = make_system_action("restart_dalvik");
+exports.stopAlien = make_system_action("stop_dalvik");
 exports.restartNetwork = make_system_action("restart_network");
