@@ -2,7 +2,7 @@ Summary: Sailfish Utilities
 Name: sailfish-utilities
 Version: 0.0.0
 Release: 1
-License: TODO
+License: LGPLv2.1
 Group: System Environment/Tools
 URL: https://github.com/sailfishos/sailfish-utilities
 Source0: %{name}-%{version}.tar.bz2
