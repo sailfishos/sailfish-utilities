@@ -76,6 +76,20 @@ Column {
         }
 
         ActionItem {
+            //% "Restart keyboard"
+            actionName: qsTrId("sailfish-tools-restart-keyboard")
+            deviceLockRequired: false
+            //% "Restart keyboard if it gets stuck or clipboard stops working."
+            description: qsTrId("sailfish-utilities-restart-keyboard-desc")
+
+            function action(on_reply, on_error) {
+                tools.request("restartKeyboard", {}, {
+                    on_reply: on_reply, on_error: on_error
+                });
+            }
+        }
+
+        ActionItem {
             //% "Clean backup storage"
             actionName: qsTrId("sailfish-tools-clean-backup")
             //% "Clean backup storage to free space occupied by backups."
