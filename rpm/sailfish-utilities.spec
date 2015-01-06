@@ -1,3 +1,5 @@
+%bcond_with l10n
+
 Summary: Sailfish Utilities
 Name: sailfish-utilities
 Version: 0.0.0
@@ -20,7 +22,11 @@ BuildRequires: cmake >= 2.8
 BuildRequires: qt5-default
 BuildRequires: qt5-qttools
 BuildRequires: qt5-qttools-linguist
-Requires: sailfish-utilities-all-translations >= 0.0.1-10.1.4.jolla
+%if %{with l10n}
+%define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations)
+BuildRequires: %{name}-all-translations
+Requires: %{name}-all-translations >= %{_all_translations_version}
+%endif
 
 %description
 Miscellaneous Sailfish Utilities
