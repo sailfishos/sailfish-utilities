@@ -80,8 +80,12 @@ class BecomeRoot
 public:
     BecomeRoot() : uid_(escalate()) { }
     ~BecomeRoot() {
-        if (uid_)
-            ::setuid(uid_);
+        if (uid_) {
+            if (::setuid(uid_) == -1) {
+                std::cerr << "Can't get back to user"
+                          << strerror(errno) << std::endl;
+            }
+        }
     }
 private:
 
