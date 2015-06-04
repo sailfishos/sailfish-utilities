@@ -64,12 +64,6 @@ std::map<std::string, action_type> actions = {
     { "repair_rpm_db", [](action_ctx const *) {
             execute_own_utility("repair_rpm_db.sh");
         }},
-    { "restart_dalvik", [](action_ctx const *) {
-            service_do("aliendalvik", "restart");
-        }},
-    { "stop_dalvik", [](action_ctx const *) {
-            service_do("aliendalvik", "stop");
-        }},
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }}
