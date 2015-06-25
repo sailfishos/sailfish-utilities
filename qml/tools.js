@@ -32,6 +32,13 @@ exports.restartKeyboard = function(msg, ctx) {
     os.system("systemctl", ["--user", "restart", "maliit-server.service"]);
 };
 
+exports.isAndroidControlNeeded = function(msg, ctx) {
+    var os = require("os");
+    var rc = os.system("rpm", ["-q", "aliendalvik"]);
+    return (rc === 0
+            && os.system("rpm", ["-q", "apkd-android-settings"]) !== 0);
+};
+
 exports.restartAlien = make_system_action("restart_dalvik");
 exports.stopAlien = make_system_action("stop_dalvik");
 exports.restartNetwork = make_system_action("restart_network");
