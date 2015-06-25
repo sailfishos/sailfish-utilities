@@ -54,13 +54,18 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
+%dir %{_datadir}/sailfish-utilities
 %{_datadir}/sailfish-utilities/*.qml
 %{_datadir}/sailfish-utilities/*.js
 %{_datadir}/sailfish-utilities/*.sh
+%dir %{_datadir}/sailfish-utilities/plugins
+%{_datadir}/sailfish-utilities/plugins/*.qml
 %{_datadir}/jolla-settings/entries/utilities.json
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
 %{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.error.conf
 %{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.info.conf
+%dir %{_libdir}/qt5/qml/Sailfish/Utilities
+%{_libdir}/qt5/qml/Sailfish/Utilities/*
 
 %files ts-devel
 %defattr(-,root,root,-)
