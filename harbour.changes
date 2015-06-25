@@ -2,3 +2,7 @@
 
 - Android controls are loaded only if Android support is installed and
   separate Settings page is not installed
+
+* Wed Jul 15 10:17:22 EEST 2015 - 0.0.12
+
+- Added button to restart UI
