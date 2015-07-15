@@ -74,6 +74,9 @@ std::map<std::string, action_type> actions = {
     { "restart_lipstick", [](action_ctx const *) {
             return execute_own_utility("restart_lipstick.sh");
         }},
+    { "restart_device", [](action_ctx const *) {
+            return system("dsmetool -b");
+        }},
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }}
