@@ -18,6 +18,7 @@
 #include <iostream>
 #include <sstream>
 #include <map>
+#include <set>
 
 namespace utilities {
 
@@ -70,9 +71,19 @@ std::map<std::string, action_type> actions = {
     { "stop_dalvik", [](action_ctx const *) {
             service_do("aliendalvik", "stop");
         }},
+    { "restart_lipstick", [](action_ctx const *) {
+            return execute_own_utility("restart_lipstick.sh");
+        }},
+    { "restart_device", [](action_ctx const *) {
+            return system("dsmetool -b");
+        }},
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }}
+};
+
+std::set<std::string> root_actions = {
+    "repair_rpm_db", "restart_dalvik", "stop_dalvik", "restart_network"
 };
 
 class BecomeRoot
@@ -127,8 +138,12 @@ int main(int argc, char *argv[])
     if (name == "-h" || name == "--help")
         return exit_usage(argv[0], 0);
 
-    auto execute = [](action_type const &action) {
+    auto execute_root = [](action_type const &action) {
         BecomeRoot root;
+        action(nullptr);
+    };
+
+    auto execute = [](action_type const &action) {
         action(nullptr);
     };
 
@@ -137,7 +152,10 @@ int main(int argc, char *argv[])
         return exit_usage(argv[0], 1);
     }
     try {
-        execute(it->second);
+        if (root_actions.count(name) > 0)
+            execute_root(it->second);
+        else
+            execute(it->second);
     } catch (std::exception const &e) {
         std::cerr << "Error " << e.what()
                   << ". While executing action: " << name.c_str()
@@ -157,4 +175,3 @@ int main(int argc, char *argv[])
 {
     return utilities::main(argc, argv);
 }
-
