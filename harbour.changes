@@ -1,9 +1,14 @@
-* Thu Jun 25 13:36:41 EEST 2015 - 0.0.11
+* Tue Jul 21 10:49:53 EEST 2015 - 0.0.13
 
-- Android controls are loaded only if Android support is installed and
-  separate Settings page is not installed
+- translation for Settings menu entry is enabled
 
 * Wed Jul 15 10:17:22 EEST 2015 - 0.0.12
 
 - Added button to restart UI
 - Added button to restart device
+
+* Thu Jun 25 13:36:41 EEST 2015 - 0.0.11
+
+- Android controls are loaded only if Android support is installed and
+  separate Settings page is not installed
+
