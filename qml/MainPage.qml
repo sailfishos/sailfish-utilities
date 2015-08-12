@@ -82,8 +82,6 @@ Page {
         notification.publish();
     }
 
-    anchors.fill: parent
-
     SilicaFlickable {
         id: mainView
         anchors.fill: parent
