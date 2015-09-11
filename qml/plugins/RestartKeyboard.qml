@@ -7,7 +7,7 @@ ActionItem {
     //% "Restart keyboard"
     actionName: qsTrId("sailfish-tools-restart-keyboard")
     deviceLockRequired: false
-    //% "Restart keyboard if it gets stuck or clipboard stops working."
+    //% "Restart keyboard if it gets stuck."
     description: qsTrId("sailfish-utilities-restart-keyboard-desc")
 
     function action(on_reply, on_error) {
