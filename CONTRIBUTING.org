@@ -1,0 +1,30 @@
+* Bugs
+
+  Please, use [[http://bugs.merproject.org/][Mer bugzilla]] (use component .Other) to submit bugs if
+  you are planning to submit fix for it. Otherwise, if you just want
+  to report an issue or propose a feature but you are not planning to
+  change anything in the code yourself, use github "Issues" page.
+
+* Commit message requirements
+
+  Commit message should contain _anywhere_ in the body line in one of
+  the following formats:
+
+  ~[xxx] yyy. Fixes MER#ZZZ~
+
+  ~[xxx] yyy. Contributes to MER#ZZZ~
+
+  where
+
+  - xxx :: some short tag (like [ui], [l10n], [rpm] etc.),
+
+  - yyy :: short description of the change (longer description could
+           be in the message body or, if line in this format is not
+           the first one, first line could be more descriptive)
+
+  - zzz :: MER bugzilla bug number.
+
+
+  If you want to fix wording, you can refer to the MER#1305 bug, like:
+
+  ~[l10n] Fixed some bla-bla wording. Contributes to MER#1305~

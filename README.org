@@ -1,5 +1,5 @@
 * Set of Utilities for Sailfish OS
 
-Tools to solve different maintenance tasks or to fix/workaround known
-issues, to restart subsystems w/o restarting device, clean space,
-perform long lasting maintenance tasks etc.
+  Tools to solve different maintenance tasks or to fix/workaround
+  known issues, to restart subsystems w/o restarting device, clean
+  space, perform long lasting maintenance tasks etc.
