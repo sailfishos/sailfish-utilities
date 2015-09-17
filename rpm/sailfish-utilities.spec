@@ -37,6 +37,8 @@ Summary: Translation source for %{name}
 %description ts-devel
 Translation source for %{name}
 
+%define _userunitdir %{_libdir}/systemd/user/
+
 %prep
 %setup -q
 
@@ -66,6 +68,7 @@ rm -rf %{buildroot}
 %{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.info.conf
 %dir %{_libdir}/qt5/qml/Sailfish/Utilities
 %{_libdir}/qt5/qml/Sailfish/Utilities/*
+%{_userunitdir}/tracker-reindex.service
 
 %files ts-devel
 %defattr(-,root,root,-)

@@ -24,7 +24,7 @@ exports.cleanRpmDb = make_system_action("repair_rpm_db");
 
 exports.cleanTrackerDb = function(msg, ctx) {
     var os = require("os");
-    os.system("tracker-control", ["-krs"]);
+    os.system("systemctl", ["--user", "start", "tracker-reindex.service"]);
 };
 
 exports.restartKeyboard = function(msg, ctx) {
