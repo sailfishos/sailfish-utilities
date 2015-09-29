@@ -9,9 +9,6 @@ ActionItem {
     deviceLockRequired: false
     //% "Restart network subsystem if anything wrong happened with "
     //% "connectivity (WLAN, mobile data)."
-    //% "Ignore the warning asking you to restart device because "
-    //% "SIM is removed. This is the side effect of the network "
-    //% "stack beeing restarted"
     description: qsTrId("sailfish-utilities-me-restart-network-desc")
 
     function action(on_reply, on_error) {
