@@ -79,6 +79,7 @@ Page {
         //% "Sailfish Utilities"
         notification.previewBody = qsTrId("sailfish-utilities-me-name");
         notification.previewSummary = message;
+        notification.close();
         notification.publish();
     }
 
