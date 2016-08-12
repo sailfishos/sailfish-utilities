@@ -18,6 +18,7 @@ Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-systemsettings
 Requires: nemo-qml-plugin-dbus-qt5
 Requires:  mapplauncherd-booster-silica-qt5
+Requires: tracker >= 1.3.2
 BuildRequires: cmake >= 2.8
 BuildRequires: qt5-default
 BuildRequires: qt5-qttools
