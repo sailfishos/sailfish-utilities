@@ -10,7 +10,7 @@ import Sailfish.Silica 1.0
 import com.jolla.settings.system 1.0
 import org.nemomobile.notifications 1.0
 import org.nemomobile.systemsettings 1.0
-import org.nemomobile.dbus 1.0
+import org.nemomobile.dbus 2.0
 
 Page {
     id: mainPage
@@ -38,8 +38,8 @@ Page {
 
     DBusInterface {
         id: dsmeDbus
-        busType: DBusInterface.SystemBus
-        destination: "com.nokia.dsme"
+        bus: DBus.SystemBus
+        service: "com.nokia.dsme"
         path: "/com/nokia/dsme/request"
         iface: "com.nokia.dsme.request"
     }
