@@ -7,14 +7,14 @@
 import QtQuick 2.0
 import Mer.Cutes 1.1
 import Sailfish.Silica 1.0
-import Sailfish.Silica.theme 1.0
 import com.jolla.settings.system 1.0
 import org.nemomobile.notifications 1.0
-import org.nemomobile.systemsettings 1.0
-import org.nemomobile.dbus 1.0
+import org.nemomobile.devicelock 1.0
+import org.nemomobile.dbus 2.0
 
 Page {
     id: mainPage
+
     property bool inProgress: false
 
     backNavigation: !inProgress
@@ -24,23 +24,18 @@ Page {
         source: "./tools.js"
     }
 
-    DeviceLockInterface {
-        id: deviceLockInterface
+    DeviceLockQuery {
+        id: deviceLockQuery
     }
 
     DeviceLockSettings {
         id: deviceLockSettings
     }
 
-    Component {
-        id: lockQueryPage
-        DeviceLockQuery {}
-    }
-
     DBusInterface {
         id: dsmeDbus
-        busType: DBusInterface.SystemBus
-        destination: "com.nokia.dsme"
+        bus: DBus.SystemBus
+        service: "com.nokia.dsme"
         path: "/com/nokia/dsme/request"
         iface: "com.nokia.dsme.request"
     }
@@ -56,18 +51,20 @@ Page {
     }
 
     function requestLockCode(on_ok) {
-        var lockEntered = function() {
-            console.log("Lock code is ok");
-            pageStack.pop();
-            on_ok();
-        }
-        if (!deviceLockInterface.isSet) {
-            console.log("There is no lock code, do not request it");
-            on_ok();
+        if (!deviceLockQuery.lockCodeSet) {
+            console.log("There is no lock code, do not request it")
+            on_ok()
         } else {
-            console.log("Requesting lock code");
-            var query = pageStack.push(lockQueryPage);
-            query.lockCodeConfirmed.connect(lockEntered);
+            console.log("Requesting lock code")
+
+            deviceLockQuery.authenticate(deviceLockSettings.authorization,
+                                         function(authenticationToken) {
+                console.log("Lock code is ok")
+                pageStack.pop()
+                on_ok()
+            }, function () {
+                pageStack.pop(mainPage)
+            })
         }
     }
 
