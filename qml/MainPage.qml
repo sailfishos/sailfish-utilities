@@ -77,7 +77,7 @@ Page {
     SilicaFlickable {
         id: mainView
         anchors.fill: parent
-        contentHeight: actionList.height
+        contentHeight: actionList.height + Theme.paddingLarge
 
         ActionList {
             id: actionList
