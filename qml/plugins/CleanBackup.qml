@@ -12,8 +12,6 @@ ActionItem {
     remorseText: qsTrId("sailfish-utilities-me-remorse-removing-backups")
 
     function action(on_reply, on_error) {
-        tools.request("removeBackups", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.removeBackups(on_reply, on_error)
     }
 }

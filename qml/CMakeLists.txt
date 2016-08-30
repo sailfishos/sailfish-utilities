@@ -1,14 +1,10 @@
-set(JS_FILES
-  tools.js
-  )
-
 set(QML_FILES
   ActionList.qml
   MainPage.qml
   )
 
 install(
-  FILES ${JS_FILES} ${QML_FILES}
+  FILES ${QML_FILES}
   DESTINATION share/${PACKAGE_NAME}
   )
 

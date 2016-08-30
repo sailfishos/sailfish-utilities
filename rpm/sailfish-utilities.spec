@@ -10,8 +10,6 @@ URL: https://github.com/sailfishos/sailfish-utilities
 Source0: %{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:  sailfishsilica-qt5
-Requires: cutes-js >= 0.8
-Requires: cutes >= 0.8
 Requires: qt5-qtdeclarative-systeminfo
 Requires: jolla-settings-system >= 0.1.69
 Requires: nemo-qml-plugin-notifications-qt5
@@ -59,7 +57,6 @@ rm -rf %{buildroot}
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
 %dir %{_datadir}/sailfish-utilities
 %{_datadir}/sailfish-utilities/*.qml
-%{_datadir}/sailfish-utilities/*.js
 %{_datadir}/sailfish-utilities/*.sh
 %dir %{_datadir}/sailfish-utilities/plugins
 %{_datadir}/sailfish-utilities/plugins/*.qml

@@ -11,8 +11,6 @@ ActionItem {
     description: qsTrId("sailfish-utilities-restart-device-desc")
 
     function action(on_reply, on_error) {
-        tools.request("restartDevice", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.restartDevice(on_reply, on_error)
     }
 }

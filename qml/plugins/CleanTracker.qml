@@ -14,8 +14,6 @@ ActionItem {
     deviceLockRequired: false
 
     function action(on_reply, on_error) {
-        tools.request("cleanTrackerDb", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.cleanTrackerDb(on_reply, on_error)
     }
 }

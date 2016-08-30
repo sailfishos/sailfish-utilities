@@ -13,8 +13,6 @@ ActionItem {
     requiresReboot: true
 
     function action(on_reply, on_error) {
-        tools.request("cleanRpmDb", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.cleanRpmDb(on_reply, on_error)
     }
 }
