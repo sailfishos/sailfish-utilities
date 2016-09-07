@@ -21,6 +21,10 @@ BuildRequires: cmake >= 2.8
 BuildRequires: qt5-default
 BuildRequires: qt5-qttools
 BuildRequires: qt5-qttools-linguist
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: pkgconfig(Qt5Quick)
+BuildRequires: pkgconfig(Qt5Gui)
 %if %{with l10n}
 BuildRequires: %{name}-all-translations
 #!BuildIgnore: %{name}-all-translations-pack
