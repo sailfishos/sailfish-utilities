@@ -33,16 +33,6 @@ Column {
                       , "CleanBackup", "CleanPackageCache", "CleanTracker" ]
         for (var i = 0; i < names.length; ++i)
             justLoad(names[i])
-
-        tools.request("isAndroidControlNeeded", {}, {
-            on_reply: function(is_show) {
-                if (is_show) {
-                    justLoad("StopAndroid")
-                    justLoad("RestartAndroid")
-                }
-            }, on_error: function(e) {
-                console.log("Error", e)
-            }});
     }
     Column {
         width: parent.width

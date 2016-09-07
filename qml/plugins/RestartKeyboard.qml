@@ -10,8 +10,6 @@ ActionItem {
     description: qsTrId("sailfish-utilities-restart-keyboard-desc")
 
     function action(on_reply, on_error) {
-        tools.request("restartKeyboard", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.restartKeyboard(on_reply, on_error)
     }
 }

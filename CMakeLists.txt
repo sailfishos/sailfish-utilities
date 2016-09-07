@@ -14,4 +14,5 @@ install(
 )
 
 add_subdirectory(qml)
+add_subdirectory(plugin)
 add_subdirectory(tools)

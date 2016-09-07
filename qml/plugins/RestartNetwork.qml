@@ -11,8 +11,6 @@ ActionItem {
     description: qsTrId("sailfish-utilities-me-restart-network-desc")
 
     function action(on_reply, on_error) {
-        tools.request("restartNetwork", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.restartNetwork(on_reply, on_error)
     }
 }

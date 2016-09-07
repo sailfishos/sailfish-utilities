@@ -12,8 +12,6 @@ ActionItem {
     description: qsTrId("sailfish-utilities-restart-ui-desc")
 
     function action(on_reply, on_error) {
-        tools.request("restartLipstick", {}, {
-            on_reply: on_reply, on_error: on_error
-        });
+        UtilTools.restartLipstick(on_reply, on_error)
     }
 }

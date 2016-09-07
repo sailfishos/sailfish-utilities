@@ -65,12 +65,6 @@ std::map<std::string, action_type> actions = {
     { "repair_rpm_db", [](action_ctx const *) {
             execute_own_utility("repair_rpm_db.sh");
         }},
-    { "restart_dalvik", [](action_ctx const *) {
-            service_do("aliendalvik", "restart");
-        }},
-    { "stop_dalvik", [](action_ctx const *) {
-            service_do("aliendalvik", "stop");
-        }},
     { "restart_lipstick", [](action_ctx const *) {
             return execute_own_utility("restart_lipstick.sh");
         }},
@@ -83,7 +77,7 @@ std::map<std::string, action_type> actions = {
 };
 
 std::set<std::string> root_actions = {
-    "repair_rpm_db", "restart_dalvik", "stop_dalvik", "restart_network"
+    "repair_rpm_db", "restart_network"
 };
 
 class BecomeRoot
