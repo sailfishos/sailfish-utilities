@@ -26,10 +26,9 @@ BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Gui)
 %if %{with l10n}
-BuildRequires: %{name}-all-translations
-#!BuildIgnore: %{name}-all-translations-pack
-%define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations)
-Requires: %{name}-all-translations >= %{_all_translations_version}
+BuildRequires: %{name}-all-translations-pack
+%define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations-pack)
+Requires: %{name}-all-translations-pack >= %{_all_translations_version}
 %endif
 
 %description
