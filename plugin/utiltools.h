@@ -18,9 +18,6 @@ public:
     Q_INVOKABLE void cleanRpmDb(QJSValue successCallback = QJSValue::UndefinedValue,
                                 QJSValue errorCallback = QJSValue::UndefinedValue);
 
-    Q_INVOKABLE void restartKeyboard(QJSValue successCallback = QJSValue::UndefinedValue,
-                                     QJSValue errorCallback = QJSValue::UndefinedValue);
-
     Q_INVOKABLE void cleanTrackerDb(QJSValue successCallback = QJSValue::UndefinedValue,
                                     QJSValue errorCallback = QJSValue::UndefinedValue);
 
@@ -29,9 +26,6 @@ public:
 
     Q_INVOKABLE void restartLipstick(QJSValue successCallback = QJSValue::UndefinedValue,
                                      QJSValue errorCallback = QJSValue::UndefinedValue);
-
-    Q_INVOKABLE void restartDevice(QJSValue successCallback = QJSValue::UndefinedValue,
-                                   QJSValue errorCallback = QJSValue::UndefinedValue);
 
 private slots:
     void handleProcessExit(int exitCode, QProcess::ExitStatus status);

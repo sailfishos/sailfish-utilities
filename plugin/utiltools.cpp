@@ -41,12 +41,6 @@ void UtilTools::cleanRpmDb(QJSValue successCallback, QJSValue errorCallback)
     execute(SystemTool, QStringList("repair_rpm_db"), successCallback, errorCallback);
 }
 
-void UtilTools::restartKeyboard(QJSValue successCallback, QJSValue errorCallback)
-{
-    QStringList arguments;
-    arguments << "--user" << "restart" << "maliit-server.service";
-    execute("systemctl", arguments, successCallback, errorCallback);
-}
 
 void UtilTools::cleanTrackerDb(QJSValue successCallback, QJSValue errorCallback)
 {
@@ -63,11 +57,6 @@ void UtilTools::restartNetwork(QJSValue successCallback, QJSValue errorCallback)
 void UtilTools::restartLipstick(QJSValue successCallback, QJSValue errorCallback)
 {
     execute(SystemTool, QStringList("restart_lipstick"), successCallback, errorCallback);
-}
-
-void UtilTools::restartDevice(QJSValue successCallback, QJSValue errorCallback)
-{
-    execute(SystemTool, QStringList("restart_device"), successCallback, errorCallback);
 }
 
 void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)

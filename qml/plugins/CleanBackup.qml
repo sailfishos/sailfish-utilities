@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
+    //: Title for backup-related recover actions
     //% "Backup"
     title: qsTrId("sailfish-tools-he-backup")
     //% "Clean"
