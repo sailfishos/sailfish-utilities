@@ -3,8 +3,10 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
-    //% "Clean package cache"
-    actionName: qsTrId("sailfish-tools-clean-pkg-cache")
+    //% "Package cache"
+    title: qsTrId("sailfish-tools-he-packace_cache")
+    //% "Clean"
+    actionName: qsTrId("sailfish-tools-bt-clean")
     //% "Package cache cleaning can be tried if there are "
     //% "problems with store, e.g. 'Critical problem with the app registry' error. "
     //% "More information can be found "

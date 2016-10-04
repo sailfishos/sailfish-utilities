@@ -3,8 +3,10 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
-    //% "Restart Home Screen"
-    actionName: qsTrId("sailfish-tools-restart-ui")
+    //% "Home Screen"
+    title: qsTrId("sailfish-tools-he-home_screen")
+    //% "Restart
+    actionName: qsTrId("sailfish-tools-bt-restart")
     deviceLockRequired: false
     //% "Restart Home Screen, closing all runnning applications. "
     //% "It'd be helpful if some application is hanged or can't be started, or "

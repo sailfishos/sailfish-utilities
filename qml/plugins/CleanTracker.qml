@@ -3,8 +3,10 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
-    //% "Clean tracker dabatase"
-    actionName: qsTrId("sailfish-tools-clean-tracker-db")
+    //% "Tracker database"
+    title: qsTrId("sailfish-tools-he-tracker_database")
+    //% "Clean"
+    actionName: qsTrId("sailfish-tools-bt-clean")
     //% "Tracker dabatabase cleaning can help in cases with "
     //% "missing images, audio files etc. Processes using tracker "
     //% "will be closed, tracker reindexing will be started. "
