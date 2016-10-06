@@ -3,8 +3,10 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
-    //% "Restart network"
-    actionName: qsTrId("sailfish-tools-me-restart-network")
+    //% "Network"
+    title: qsTrId("sailfish-tools-he-network")
+    //% "Restart"
+    actionName: qsTrId("sailfish-tools-bt-restart")
     deviceLockRequired: false
     //% "Restart network subsystem if anything wrong happened with "
     //% "connectivity (WLAN, mobile data)."

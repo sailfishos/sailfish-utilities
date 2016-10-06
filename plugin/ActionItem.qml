@@ -16,6 +16,7 @@ Item {
     property string actionName: ""
     property string description: ""
     property string remorseText: ""
+    property string title: ""
     property string url: ""
     property bool requiresReboot: false
     property bool deviceLockRequired: true
@@ -53,6 +54,9 @@ Item {
         id: dataArea
         width: parent.width
 
+        SectionHeader {
+            text: self.title
+        }
         Text {
             anchors {
                 left: parent.left

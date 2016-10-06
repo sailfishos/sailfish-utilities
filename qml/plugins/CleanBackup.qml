@@ -3,8 +3,11 @@ import Sailfish.Silica 1.0
 import Sailfish.Utilities 1.0
 
 ActionItem {
-    //% "Clean backup storage"
-    actionName: qsTrId("sailfish-tools-clean-backup")
+    //: Title for backup-related recover actions
+    //% "Backup"
+    title: qsTrId("sailfish-tools-he-backup")
+    //% "Clean"
+    actionName: qsTrId("sailfish-tools-bt-clean")
     //% "Clean backup storage to free space occupied by backups."
     //% " All backups will be removed"
     description: qsTrId("sailfish-utilities-me-clean-backups-desc")
