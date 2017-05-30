@@ -109,7 +109,7 @@ Item {
                 };
                 var fn = remorseText ? executeAfterRemorse : executeAction;
                 if (deviceLockRequired) {
-                    requestLockCode(fn);
+                    requestSecurityCode(fn);
                 } else {
                     fn();
                 }

@@ -42,7 +42,7 @@ Column {
 
     ActionItem {
         actionName: "SHOW ERROR"
-        description: "SOME ERROR w/o lock code"
+        description: "SOME ERROR w/o security code"
         deviceLockRequired: false
 
         function action(on_reply, on_error) {

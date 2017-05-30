@@ -44,16 +44,16 @@ Page {
         rebootTimer.start()
     }
 
-    function requestLockCode(on_ok) {
+    function requestSecurityCode(on_ok) {
         if (!deviceLockQuery.lockCodeSet) {
-            console.log("There is no lock code, do not request it")
+            console.log("There is no security code, do not request it")
             on_ok()
         } else {
-            console.log("Requesting lock code")
+            console.log("Requesting security code")
 
             deviceLockQuery.authenticate(deviceLockSettings.authorization,
                                          function(authenticationToken) {
-                console.log("Lock code is ok")
+                console.log("Security code is ok")
                 pageStack.pop()
                 on_ok()
             }, function () {
