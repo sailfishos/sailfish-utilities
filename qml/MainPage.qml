@@ -45,21 +45,14 @@ Page {
     }
 
     function requestSecurityCode(on_ok) {
-        if (!deviceLockQuery.lockCodeSet) {
-            console.log("There is no security code, do not request it")
-            on_ok()
-        } else {
-            console.log("Requesting security code")
-
-            deviceLockQuery.authenticate(deviceLockSettings.authorization,
-                                         function(authenticationToken) {
-                console.log("Security code is ok")
-                pageStack.pop()
-                on_ok()
-            }, function () {
-                pageStack.pop(mainPage)
-            })
-        }
+        deviceLockQuery.authenticate(deviceLockSettings.authorization,
+                                     function(authenticationToken) {
+                                         console.log("Security code is ok or not used")
+                                         pageStack.pop(mainPage)
+                                         on_ok()
+                                     }, function () {
+                                         pageStack.pop(mainPage)
+                                     })
     }
 
     function actionIsDone(category, message) {
