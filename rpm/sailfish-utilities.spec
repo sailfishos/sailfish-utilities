@@ -65,8 +65,6 @@ rm -rf %{buildroot}
 %{_datadir}/sailfish-utilities/plugins/*.qml
 %{_datadir}/jolla-settings/entries/utilities.json
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
-%{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.error.conf
-%{_datadir}/lipstick/notificationcategories/x-sailfish.sailfish-utilities.info.conf
 %dir %{_libdir}/qt5/qml/Sailfish/Utilities
 %{_libdir}/qt5/qml/Sailfish/Utilities/*
 %{_userunitdir}/tracker-reindex.service

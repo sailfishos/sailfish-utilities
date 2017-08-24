@@ -57,9 +57,6 @@ Page {
 
     function actionIsDone(category, message) {
         console.log("Notify", message);
-        notification.category = (category === "error")
-            ? "x-sailfish.sailfish-utilities.error"
-            : "x-sailfish.sailfish-utilities.info";
         //% "Sailfish Utilities"
         notification.previewBody = qsTrId("sailfish-utilities-me-name");
         notification.previewSummary = message;
@@ -92,7 +89,7 @@ Page {
     }
     Notification {
         id: notification
-        category: "x-sailfish.sailfish-utilities.error"
+        icon: "icon-m-health"
     }
 
     BusyIndicator {
