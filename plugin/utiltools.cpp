@@ -78,7 +78,7 @@ void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)
             }
         }
     } else if (callbacks.second.isCallable()) {
-        QJSValue result = callbacks.second.call();
+        QJSValue result = callbacks.second.call(QJSValueList() << QJSValue(exitCode));
         if (result.isError()) {
             qmlInfo(this) << "Error executing error callback";
         }
