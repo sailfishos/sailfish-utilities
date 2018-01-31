@@ -41,12 +41,9 @@ void UtilTools::cleanRpmDb(QJSValue successCallback, QJSValue errorCallback)
     execute(SystemTool, QStringList("repair_rpm_db"), successCallback, errorCallback);
 }
 
-
 void UtilTools::cleanTrackerDb(QJSValue successCallback, QJSValue errorCallback)
 {
-    QStringList arguments;
-    arguments << "--user" << "start" << "tracker-reindex.service";
-    execute("systemctl", arguments, successCallback, errorCallback);
+    execute(SystemTool, QStringList("tracker_reindex"), successCallback, errorCallback);
 }
 
 void UtilTools::restartNetwork(QJSValue successCallback, QJSValue errorCallback)
@@ -78,7 +75,7 @@ void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)
             }
         }
     } else if (callbacks.second.isCallable()) {
-        QJSValue result = callbacks.second.call();
+        QJSValue result = callbacks.second.call(QJSValueList() << QJSValue(exitCode));
         if (result.isError()) {
             qmlInfo(this) << "Error executing error callback";
         }
