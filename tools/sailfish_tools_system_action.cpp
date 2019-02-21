@@ -47,13 +47,6 @@ void system(std::string const &cmd)
         throw Error(cmd);
 }
 
-void service_do(const std::string &name, const std::string &action)
-{
-    std::stringstream cmd_line;
-    cmd_line << "systemctl " << action << " " << name << ".service";
-    system(cmd_line.str());
-}
-
 void execute_own_utility(std::string const &file_name)
 {
     system((application_dir + "/" + file_name));
