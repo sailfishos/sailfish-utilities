@@ -10,7 +10,6 @@ URL: https://github.com/sailfishos/sailfish-utilities
 Source0: %{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:  sailfishsilica-qt5
-Requires: qt5-qtdeclarative-systeminfo
 Requires: jolla-settings-system >= 0.1.69
 Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-devicelock
