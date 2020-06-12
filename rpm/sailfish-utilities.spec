@@ -5,7 +5,6 @@ Name: sailfish-utilities
 Version: 0.0.0
 Release: 1
 License: LGPLv2.1
-Group: System Environment/Tools
 URL: https://github.com/sailfishos/sailfish-utilities
 Source0: %{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -24,6 +23,7 @@ BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: systemd
 %if %{with l10n}
 BuildRequires: %{name}-all-translations-pack
 %define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations-pack)
@@ -37,8 +37,6 @@ Miscellaneous Sailfish Utilities
 Summary: Translation source for %{name}
 %description ts-devel
 Translation source for %{name}
-
-%define _userunitdir %{_libdir}/systemd/user/
 
 %prep
 %setup -q
