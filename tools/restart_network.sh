@@ -1,14 +1,14 @@
 #!/bin/sh
 
-function warning {
-    echo "`basename $0`: Warning: ${@:1}" 1>&2;
+warning() {
+    printf "%s: Warning: %s\n" "$(basename $0)" "$*" 1>&2
 }
 
-function service_do {
-    if systemctl $1 $2; then
+service_do() {
+    if systemctl "$1" "$2"; then
         return 0;
     else
-        warning "Status $?" "on $1 $2" ${@:3}
+        warning "Status $? on" "${@}"
         return 1;
     fi
 }
