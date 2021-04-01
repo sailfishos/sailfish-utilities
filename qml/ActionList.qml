@@ -28,7 +28,7 @@ Column {
             var info = { name: name, path: "plugins/" + name + ".qml" }
             plugins.append(info)
         }
-        var names = [ "RestartNetwork", "RestartUI", "CleanBackup",
+        var names = [ "RestartNetwork", "RestartUI",
                       "CleanPackageCache", "CleanTracker" ]
         for (var i = 0; i < names.length; ++i)
             justLoad(names[i])

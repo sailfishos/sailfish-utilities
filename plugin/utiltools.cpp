@@ -15,27 +15,6 @@ UtilTools::~UtilTools()
 {
 }
 
-void UtilTools::removeBackups(QJSValue successCallback, QJSValue errorCallback)
-{
-    QDir vaultDir(QDir::homePath() + "/.vault");
-
-    if (vaultDir.removeRecursively()) {
-        if (successCallback.isCallable()) {
-            QJSValue result = successCallback.call();
-            if (result.isError()) {
-                qmlInfo(this) << "Error executing callback";
-            }
-        }
-    } else {
-        if (errorCallback.isCallable()) {
-            QJSValue result = errorCallback.call();
-            if (result.isError()) {
-                qmlInfo(this) << "Error executing error callback";
-            }
-        }
-    }
-}
-
 void UtilTools::cleanRpmDb(QJSValue successCallback, QJSValue errorCallback)
 {
     execute(SystemTool, QStringList("repair_rpm_db"), successCallback, errorCallback);

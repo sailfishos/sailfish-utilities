@@ -12,9 +12,6 @@ public:
     UtilTools(QObject *parent = 0);
     virtual ~UtilTools();
 
-    Q_INVOKABLE void removeBackups(QJSValue successCallback = QJSValue::UndefinedValue,
-                                   QJSValue errorCallback = QJSValue::UndefinedValue);
-
     Q_INVOKABLE void cleanRpmDb(QJSValue successCallback = QJSValue::UndefinedValue,
                                 QJSValue errorCallback = QJSValue::UndefinedValue);
 
