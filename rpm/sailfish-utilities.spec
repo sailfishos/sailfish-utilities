@@ -61,7 +61,6 @@ Translation source for %{name}
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
 %dir %{_libdir}/qt5/qml/Sailfish/Utilities
 %{_libdir}/qt5/qml/Sailfish/Utilities/*
-%{_userunitdir}/tracker-reindex.service
 
 %files ts-devel
 %defattr(-,root,root,-)

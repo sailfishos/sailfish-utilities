@@ -72,11 +72,14 @@ std::map<std::string, action_type> actions = {
         }},
     { "restart_fingerprint", [](action_ctx const *) {
             return execute_own_utility("restart_fingerprint.sh");
+        }},
+    { "reset_aliendalvik", [](action_ctx const *) {
+            return execute_own_utility("reset_aliendalvik.sh");
         }}
 };
 
 std::set<std::string> root_actions = {
-    "repair_rpm_db", "restart_network", "restart_fingerprint", "restart_bluetooth"
+    "repair_rpm_db", "restart_network", "restart_fingerprint", "restart_bluetooth", "reset_aliendalvik"
 };
 
 class BecomeRoot
