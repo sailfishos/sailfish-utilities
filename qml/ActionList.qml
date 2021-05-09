@@ -29,8 +29,9 @@ Column {
             plugins.append(info)
         }
         var names = [ "RestartNetwork", "RestartUI",
-                      "CleanPackageCache", "CleanTracker",
-                      "RestartFingerprint"]
+                      "RestartFingerprint", "RestartBluetooth",
+                      "CleanPackageCache", "CleanTracker"
+                    ]
         for (var i = 0; i < names.length; ++i)
             justLoad(names[i])
     }

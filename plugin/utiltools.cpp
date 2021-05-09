@@ -30,6 +30,11 @@ void UtilTools::restartNetwork(QJSValue successCallback, QJSValue errorCallback)
     execute(SystemTool, QStringList("restart_network"), successCallback, errorCallback);
 }
 
+void UtilTools::restartBluetooth(QJSValue successCallback, QJSValue errorCallback)
+{
+    execute(SystemTool, QStringList("restart_bluetooth"), successCallback, errorCallback);
+}
+
 void UtilTools::restartLipstick(QJSValue successCallback, QJSValue errorCallback)
 {
     execute(SystemTool, QStringList("restart_lipstick"), successCallback, errorCallback);

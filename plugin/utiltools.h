@@ -21,6 +21,9 @@ public:
     Q_INVOKABLE void restartNetwork(QJSValue successCallback = QJSValue::UndefinedValue,
                                     QJSValue errorCallback = QJSValue::UndefinedValue);
 
+    Q_INVOKABLE void restartBluetooth(QJSValue successCallback = QJSValue::UndefinedValue,
+                                      QJSValue errorCallback = QJSValue::UndefinedValue);
+
     Q_INVOKABLE void restartLipstick(QJSValue successCallback = QJSValue::UndefinedValue,
                                      QJSValue errorCallback = QJSValue::UndefinedValue);
 
