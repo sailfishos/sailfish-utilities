@@ -13,8 +13,6 @@ service_do() {
     fi
 }
 
-service_do stop connman.service
-service_do stop wpa_supplicant.service
-service_do restart wlan-module-load.service
-service_do start wpa_supplicant.service
-service_do start connman.service
+service_do restart bluetooth
+systemctl is-active --quiet bluetooth-rfkill-event && service_do restart bluetooth-rfkill-event
+systemctl is-active --quiet bluebinder             && service_do restart bluebinder
