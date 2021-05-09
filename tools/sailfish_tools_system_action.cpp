@@ -61,6 +61,9 @@ std::map<std::string, action_type> actions = {
     { "restart_lipstick", [](action_ctx const *) {
             return execute_own_utility("restart_lipstick.sh");
         }},
+    { "restart_bluetooth", [](action_ctx const *) {
+            return execute_own_utility("restart_bluetooth.sh");
+        }},
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }},
@@ -70,7 +73,7 @@ std::map<std::string, action_type> actions = {
 };
 
 std::set<std::string> root_actions = {
-    "repair_rpm_db", "restart_network"
+    "repair_rpm_db", "restart_bluetooth", "restart_network"
 };
 
 class BecomeRoot
