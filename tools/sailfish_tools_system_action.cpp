@@ -66,11 +66,14 @@ std::map<std::string, action_type> actions = {
         }},
     { "tracker_reindex", [](action_ctx const *) {
             return execute_own_utility("tracker_reindex.sh");
+        }},
+    { "reset_aliendalvik", [](action_ctx const *) {
+            return execute_own_utility("reset_aliendalvik.sh");
         }}
 };
 
 std::set<std::string> root_actions = {
-    "repair_rpm_db", "restart_network"
+    "repair_rpm_db", "restart_network", "reset_aliendalvik"
 };
 
 class BecomeRoot

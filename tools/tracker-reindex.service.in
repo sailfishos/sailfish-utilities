@@ -1,5 +1,0 @@
-[Unit]
-Description=Tracker database cleanup and reindexing
-
-[Service]
-ExecStart=@DEPLOYMENT_PATH@/tracker_reindex.sh

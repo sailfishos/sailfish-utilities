@@ -35,6 +35,16 @@ void UtilTools::restartLipstick(QJSValue successCallback, QJSValue errorCallback
     execute(SystemTool, QStringList("restart_lipstick"), successCallback, errorCallback);
 }
 
+void UtilTools::resetAliendalvik(QJSValue successCallback, QJSValue errorCallback)
+{
+    execute(SystemTool, QStringList("reset_aliendalvik"), successCallback, errorCallback);
+}
+
+bool UtilTools::dirExists(const QString &path)
+{
+    return QDir(path).exists();
+}
+
 void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)
 {
     QProcess *process = qobject_cast<QProcess*>(sender());

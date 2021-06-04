@@ -24,6 +24,11 @@ public:
     Q_INVOKABLE void restartLipstick(QJSValue successCallback = QJSValue::UndefinedValue,
                                      QJSValue errorCallback = QJSValue::UndefinedValue);
 
+    Q_INVOKABLE void resetAliendalvik(QJSValue successCallback = QJSValue::UndefinedValue,
+                                     QJSValue errorCallback = QJSValue::UndefinedValue);
+
+    Q_INVOKABLE bool dirExists(const QString &path);
+
 private slots:
     void handleProcessExit(int exitCode, QProcess::ExitStatus status);
 
