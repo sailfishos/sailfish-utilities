@@ -1,3 +1,3 @@
 #!/bin/sh
 
-tracker reset -y --hard
+tracker3 reset -s
