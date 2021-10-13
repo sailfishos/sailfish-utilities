@@ -23,7 +23,7 @@ BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Gui)
-BuildRequires: systemd
+BuildRequires: pkgconfig(systemd)
 %if %{with l10n}
 BuildRequires: %{name}-all-translations-pack
 %define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations-pack)
