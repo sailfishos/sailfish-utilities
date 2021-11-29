@@ -43,17 +43,14 @@ Translation source for %{name}
 
 %build
 %cmake
-make %{?jobs:-j%jobs}
+%make_build
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot}
-
-%clean
-rm -rf %{buildroot}
+%make_install
 
 %files
 %defattr(-,root,root,-)
+%license LICENSE.LGPL
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
 %dir %{_datadir}/sailfish-utilities
 %{_datadir}/sailfish-utilities/*.qml
