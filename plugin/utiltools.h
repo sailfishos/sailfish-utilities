@@ -24,6 +24,9 @@ public:
     Q_INVOKABLE void restartLipstick(QJSValue successCallback = QJSValue::UndefinedValue,
                                      QJSValue errorCallback = QJSValue::UndefinedValue);
 
+    Q_INVOKABLE void restartFingerprint(QJSValue successCallback = QJSValue::UndefinedValue,
+                                        QJSValue errorCallback = QJSValue::UndefinedValue);
+
 private slots:
     void handleProcessExit(int exitCode, QProcess::ExitStatus status);
 
