@@ -35,6 +35,11 @@ void UtilTools::restartLipstick(QJSValue successCallback, QJSValue errorCallback
     execute(SystemTool, QStringList("restart_lipstick"), successCallback, errorCallback);
 }
 
+void UtilTools::restartFingerprint(QJSValue successCallback, QJSValue errorCallback)
+{
+    execute(SystemTool, QStringList("restart_fingerprint"), successCallback, errorCallback);
+}
+
 void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)
 {
     QProcess *process = qobject_cast<QProcess*>(sender());

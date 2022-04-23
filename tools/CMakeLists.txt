@@ -22,5 +22,6 @@ install(PROGRAMS
       restart_network.sh
       restart_lipstick.sh
       tracker_reindex.sh
+      restart_fingerprint.sh
       DESTINATION share/sailfish-utilities
 )
