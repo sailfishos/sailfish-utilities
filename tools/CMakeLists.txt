@@ -20,6 +20,7 @@ install(TARGETS
 install(PROGRAMS
       repair_rpm_db.sh
       restart_network.sh
+      restart_bluetooth.sh
       restart_lipstick.sh
       tracker_reindex.sh
       restart_fingerprint.sh
