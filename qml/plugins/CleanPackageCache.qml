@@ -13,7 +13,7 @@ ActionItem {
     //% "More information can be found "
     //% "%1here%2."
     description: qsTrId("sailfish-utilities-me-clean-pkg-cache-desc-url")
-        .arg("<a href='https://together.jolla.com/question/7988/problem-with-store-unable-to-install/'>")
+        .arg("<a href='https://docs.sailfishos.org/Support/Help_Articles/Tips_and_Tricks/#fix-the-package-cache'>")
         .arg("</a>")
     requiresReboot: true
 

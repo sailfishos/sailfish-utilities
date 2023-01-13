@@ -14,7 +14,7 @@ ActionItem {
     //% "More information can be found "
     //% "%1here%2."
     description: qsTrId("sailfish-utilities-me-clean-tracker-db-desc-url")
-        .arg("<a href='https://together.jolla.com/question/4337/refresh-tracker/'>")
+        .arg("<a href='https://docs.sailfishos.org/Support/Help_Articles/Tips_and_Tricks/#refresh-the-tracker-database'>")
         .arg("</a>")
     deviceLockRequired: false
 
