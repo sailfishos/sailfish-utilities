@@ -69,9 +69,11 @@ Page {
         anchors.fill: parent
         contentHeight: actionList.height + Theme.paddingLarge
 
+        VerticalScrollDecorator { flickable: mainView }
+
         ActionList {
             id: actionList
-            
+
             opacity: mainPage.inProgress ? 0.0 : 1.0
             Behavior on opacity { FadeAnimation {} }
             onDone: {
