@@ -9,7 +9,7 @@ ActionItem {
     //% "Restart"
     actionName: qsTrId("sailfish-tools-bt-restart")
     deviceLockRequired: false
-    //% "Restart the keyboard if it becomes unresponsive, keys are missing, " +
+    //% "Restart the keyboard if it becomes unresponsive, keys are missing, "
     //% "or if it behaves otherwise incorrectly."
     description: qsTrId("sailfish-utilities-me-restart-keyboard-desc")
 
