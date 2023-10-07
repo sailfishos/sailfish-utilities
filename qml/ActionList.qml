@@ -30,7 +30,8 @@ Column {
         }
         var names = [ "RestartNetwork", "RestartKeyboard", "RestartUI",
                       "RestartFingerprint", "RestartBluetooth",
-                      "CleanPackageCache", "CleanTracker"
+                      "CleanPackageCache", "CleanTracker",
+                      "ResetAlien"
                     ]
         for (var i = 0; i < names.length; ++i)
             justLoad(names[i])
