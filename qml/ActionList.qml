@@ -29,7 +29,7 @@ Column {
             plugins.append(info)
         }
         var names = [ "RestartNetwork", "RestartKeyboard", "RestartUI",
-                      "RestartFingerprint", "RestartBluetooth",
+                      "RestartFingerprint", "RestartAudio", "RestartBluetooth",
                       "CleanPackageCache", "CleanTracker"
                     ]
         for (var i = 0; i < names.length; ++i)
