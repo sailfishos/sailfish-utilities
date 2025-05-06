@@ -67,8 +67,8 @@ std::map<std::string, action_type> actions = {
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }},
-    { "tracker_reindex", [](action_ctx const *) {
-            return execute_own_utility("tracker_reindex.sh");
+    { "localsearch_reindex", [](action_ctx const *) {
+            return execute_own_utility("localsearch_reindex.sh");
         }},
     { "restart_fingerprint", [](action_ctx const *) {
             return execute_own_utility("restart_fingerprint.sh");

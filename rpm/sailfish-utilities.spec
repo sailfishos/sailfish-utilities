@@ -13,8 +13,8 @@ Requires: jolla-settings-system >= 0.1.69
 Requires: nemo-qml-plugin-notifications-qt5
 Requires: nemo-qml-plugin-devicelock
 Requires: nemo-qml-plugin-dbus-qt5
-Requires:  mapplauncherd-booster-silica-qt5
-Requires: tracker >= 1.3.2
+Requires: mapplauncherd-booster-silica-qt5
+Requires: localsearch
 BuildRequires: cmake >= 2.8
 BuildRequires: qt5-default
 BuildRequires: qt5-qttools
@@ -49,7 +49,6 @@ Translation source for %{name}
 %make_install
 
 %files
-%defattr(-,root,root,-)
 %license LICENSE.LGPL
 %attr(4754, root, privileged) %{_bindir}/sailfish_tools_system_action
 %dir %{_datadir}/sailfish-utilities
@@ -61,8 +60,7 @@ Translation source for %{name}
 %{_datadir}/translations/settings-sailfish_utilities_eng_en.qm
 %dir %{_libdir}/qt5/qml/Sailfish/Utilities
 %{_libdir}/qt5/qml/Sailfish/Utilities/*
-%{_userunitdir}/tracker-reindex.service
+%{_userunitdir}/localsearch-reindex.service
 
 %files ts-devel
-%defattr(-,root,root,-)
 %{_datadir}/translations/source/settings-sailfish_utilities.ts
