@@ -15,8 +15,8 @@ public:
     Q_INVOKABLE void cleanRpmDb(QJSValue successCallback = QJSValue::UndefinedValue,
                                 QJSValue errorCallback = QJSValue::UndefinedValue);
 
-    Q_INVOKABLE void cleanTrackerDb(QJSValue successCallback = QJSValue::UndefinedValue,
-                                    QJSValue errorCallback = QJSValue::UndefinedValue);
+    Q_INVOKABLE void cleanLocalsearchDb(QJSValue successCallback = QJSValue::UndefinedValue,
+                                        QJSValue errorCallback = QJSValue::UndefinedValue);
 
     Q_INVOKABLE void restartNetwork(QJSValue successCallback = QJSValue::UndefinedValue,
                                     QJSValue errorCallback = QJSValue::UndefinedValue);

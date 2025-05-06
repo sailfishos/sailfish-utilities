@@ -4,10 +4,10 @@ set(CMAKE_CXX_FLAGS
 configure_file(config.hpp.in config.hpp @ONLY)
 add_executable(sailfish_tools_system_action sailfish_tools_system_action.cpp)
 
-configure_file(tracker-reindex.service.in tracker-reindex.service @ONLY)
+configure_file(localsearch-reindex.service.in localsearch-reindex.service @ONLY)
 
 install(FILES
-  tracker-reindex.service
+  localsearch-reindex.service
   DESTINATION lib/systemd/user
   )
 
@@ -22,7 +22,7 @@ install(PROGRAMS
       restart_network.sh
       restart_bluetooth.sh
       restart_lipstick.sh
-      tracker_reindex.sh
+      localsearch_reindex.sh
       restart_fingerprint.sh
       DESTINATION share/sailfish-utilities
 )

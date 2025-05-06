@@ -20,9 +20,9 @@ void UtilTools::cleanRpmDb(QJSValue successCallback, QJSValue errorCallback)
     execute(SystemTool, QStringList("repair_rpm_db"), successCallback, errorCallback);
 }
 
-void UtilTools::cleanTrackerDb(QJSValue successCallback, QJSValue errorCallback)
+void UtilTools::cleanLocalsearchDb(QJSValue successCallback, QJSValue errorCallback)
 {
-    execute(SystemTool, QStringList("tracker_reindex"), successCallback, errorCallback);
+    execute(SystemTool, QStringList("localsearch_reindex"), successCallback, errorCallback);
 }
 
 void UtilTools::restartNetwork(QJSValue successCallback, QJSValue errorCallback)
