@@ -2,7 +2,7 @@
 
 Summary: Sailfish Utilities
 Name: sailfish-utilities
-Version: 0.0.0
+Version: 0.1.24
 Release: 1
 License: LGPLv2.1
 URL: https://github.com/sailfishos/sailfish-utilities
@@ -43,10 +43,10 @@ Translation source for %{name}
 
 %build
 %cmake
-%make_build
+%cmake_build
 
 %install
-%make_install
+%cmake_install
 
 %files
 %license LICENSE.LGPL

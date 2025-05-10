@@ -1,5 +1,5 @@
 PROJECT(SAILFISH_UTILITIES)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 set(prefix ${CMAKE_INSTALL_PREFIX})
 
