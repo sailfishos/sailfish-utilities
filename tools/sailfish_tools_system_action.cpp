@@ -91,8 +91,8 @@ public:
             }
         }
     }
-private:
 
+private:
     static uid_t escalate()
     {
         auto uid = ::getuid();

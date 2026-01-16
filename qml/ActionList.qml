@@ -9,20 +9,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Column {
-
     width: parent.width
 
     signal done(string name)
     signal error(string name, string error)
 
-    PageHeader {
-        //% "Utilities"
-        title: qsTrId("sailfish-tools-utilities")
-    }
-
-    ListModel {
-        id: plugins
-    }
     Component.onCompleted: {
         var justLoad = function(name) {
             var info = { name: name, path: "plugins/" + name + ".qml" }
@@ -35,6 +26,16 @@ Column {
         for (var i = 0; i < names.length; ++i)
             justLoad(names[i])
     }
+
+    ListModel {
+        id: plugins
+    }
+
+    PageHeader {
+        //% "Utilities"
+        title: qsTrId("sailfish-tools-utilities")
+    }
+
     Column {
         width: parent.width
         spacing: Theme.paddingLarge

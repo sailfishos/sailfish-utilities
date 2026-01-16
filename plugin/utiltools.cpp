@@ -71,7 +71,8 @@ void UtilTools::handleProcessExit(int exitCode, QProcess::ExitStatus status)
     }
 }
 
-void UtilTools::execute(const QString &command, const QStringList &arguments, QJSValue successCallback, QJSValue errorCallback)
+void UtilTools::execute(const QString &command, const QStringList &arguments,
+                        QJSValue successCallback, QJSValue errorCallback)
 {
     QProcess *process = new QProcess;
     connect(process, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(handleProcessExit(int,QProcess::ExitStatus)));
