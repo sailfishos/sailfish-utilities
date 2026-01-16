@@ -30,6 +30,11 @@ void UtilTools::restartNetwork(QJSValue successCallback, QJSValue errorCallback)
     execute(SystemTool, QStringList("restart_network"), successCallback, errorCallback);
 }
 
+void UtilTools::restartOfono(QJSValue successCallback, QJSValue errorCallback)
+{
+    execute(SystemTool, QStringList("restart_ofono"), successCallback, errorCallback);
+}
+
 void UtilTools::restartBluetooth(QJSValue successCallback, QJSValue errorCallback)
 {
     execute(SystemTool, QStringList("restart_bluetooth"), successCallback, errorCallback);

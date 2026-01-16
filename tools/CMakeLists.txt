@@ -20,6 +20,7 @@ install(TARGETS
 install(PROGRAMS
       repair_rpm_db.sh
       restart_network.sh
+      restart_ofono.sh
       restart_bluetooth.sh
       restart_lipstick.sh
       localsearch_reindex.sh
