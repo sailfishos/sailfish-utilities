@@ -13,6 +13,7 @@ ApplicationWindow {
 
     cover: CoverBackground {
         id: mainCover
+
         anchors.fill: parent
         Text {
             anchors.centerIn: parent

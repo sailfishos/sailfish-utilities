@@ -11,7 +11,6 @@ import Sailfish.Silica.theme 1.0
 import Sailfish.Utilities 1.0
 
 Column {
-
     width: parent.width
     spacing: Theme.paddingLarge
 
@@ -27,7 +26,7 @@ Column {
         description: "SOME ERROR"
 
         function action(on_reply, on_error) {
-            on_error("GOT EXPECTED ERROR");
+            on_error("GOT EXPECTED ERROR")
         }
     }
 
@@ -36,7 +35,7 @@ Column {
         description: "SOME DUMMY ACTION"
 
         function action(on_reply, on_error) {
-            on_reply("IT WAS OK");
+            on_reply("IT WAS OK")
         }
     }
 
@@ -46,7 +45,7 @@ Column {
         deviceLockRequired: false
 
         function action(on_reply, on_error) {
-            on_error("GOT EXPECTED ERROR w/o code");
+            on_error("GOT EXPECTED ERROR w/o code")
         }
     }
 
@@ -56,8 +55,7 @@ Column {
         remorseText: "Executing something dummy"
 
         function action(on_reply, on_error) {
-            on_reply("IT WAS OK");
+            on_reply("IT WAS OK")
         }
     }
-
 }

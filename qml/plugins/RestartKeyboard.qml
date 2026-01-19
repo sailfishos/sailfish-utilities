@@ -15,6 +15,7 @@ ActionItem {
 
     DBusInterface {
         id: service
+
         bus: DBus.SessionBus
         service: 'org.freedesktop.systemd1'
         path: '/org/freedesktop/systemd1/unit/maliit_2dserver_2eservice'

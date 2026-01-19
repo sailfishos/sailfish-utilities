@@ -21,6 +21,9 @@ public:
     Q_INVOKABLE void restartNetwork(QJSValue successCallback = QJSValue::UndefinedValue,
                                     QJSValue errorCallback = QJSValue::UndefinedValue);
 
+    Q_INVOKABLE void restartOfono(QJSValue successCallback = QJSValue::UndefinedValue,
+                                  QJSValue errorCallback = QJSValue::UndefinedValue);
+
     Q_INVOKABLE void restartBluetooth(QJSValue successCallback = QJSValue::UndefinedValue,
                                       QJSValue errorCallback = QJSValue::UndefinedValue);
 

@@ -10,15 +10,16 @@ import Sailfish.Silica 1.0
 
 Item {
     id: self
+
     width: parent.width
     height: dataArea.height
 
-    property string actionName: ""
-    property string description: ""
-    property string remorseText: ""
-    property string title: ""
-    property string url: ""
-    property bool requiresReboot: false
+    property string actionName
+    property string description
+    property string remorseText
+    property string title
+    property string url
+    property bool requiresReboot
     property bool deviceLockRequired: true
 
     signal done(string name)
@@ -27,31 +28,32 @@ Item {
     property var remorse: undefined
 
     Component.onCompleted: {
-        self.done.connect(actionList.done);
-        self.error.connect(actionList.error);
+        self.done.connect(actionList.done)
+        self.error.connect(actionList.error)
     }
 
     function executeAction() {
         var on_reply = function() {
-            mainPage.inProgress = false;
-            console.log("Done:", actionName);
-            self.done(actionName);
+            mainPage.inProgress = false
+            console.log("Done:", actionName)
+            self.done(actionName)
             if (requiresReboot)
-                reboot();
-        };
+                reboot()
+        }
         var on_error = function(err) {
-            mainPage.inProgress = false;
+            mainPage.inProgress = false
             // TODO show error message
-            console.log(actionName, " error:", err);
-            self.error(actionName, err);
-        };
-        console.log("Start", actionName);
-        mainPage.inProgress = true;
-        action(on_reply, on_error);
+            console.log(actionName, " error:", err)
+            self.error(actionName, err)
+        }
+        console.log("Start", actionName)
+        mainPage.inProgress = true
+        action(on_reply, on_error)
     }
 
     Column {
         id: dataArea
+
         width: parent.width
 
         SectionHeader {
@@ -87,6 +89,7 @@ Item {
         }
         Button {
             id: btn
+
             Component {
                 id: remorseComponent
                 RemorseItem { }
@@ -105,13 +108,13 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
                 var executeAfterRemorse = function() {
-                    remorseAction(remorseText, executeAction, 5000);
-                };
-                var fn = remorseText ? executeAfterRemorse : executeAction;
+                    remorseAction(remorseText, executeAction, 5000)
+                }
+                var fn = remorseText ? executeAfterRemorse : executeAction
                 if (deviceLockRequired) {
-                    requestSecurityCode(fn);
+                    requestSecurityCode(fn)
                 } else {
-                    fn();
+                    fn()
                 }
             }
         }

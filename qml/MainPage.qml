@@ -8,13 +8,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import com.jolla.settings.system 1.0
 import Nemo.Notifications 1.0
-import org.nemomobile.devicelock 1.0
 import Nemo.DBus 2.0
+import org.nemomobile.devicelock 1.0
 
 Page {
     id: mainPage
 
-    property bool inProgress: false
+    property bool inProgress
 
     backNavigation: !inProgress
 
@@ -28,6 +28,7 @@ Page {
 
     DBusInterface {
         id: dsmeDbus
+
         bus: DBus.SystemBus
         service: "com.nokia.dsme"
         path: "/com/nokia/dsme/request"
@@ -36,6 +37,7 @@ Page {
 
     Timer {
         id: rebootTimer
+
         interval: 1000
         onTriggered: dsmeDbus.call("req_reboot", [])
     }
@@ -56,16 +58,17 @@ Page {
     }
 
     function actionIsDone(category, message) {
-        console.log("Notify", message);
+        console.log("Notify", message)
         //% "Sailfish Utilities"
-        notification.previewBody = qsTrId("sailfish-utilities-me-name");
-        notification.previewSummary = message;
-        notification.close();
-        notification.publish();
+        notification.previewBody = qsTrId("sailfish-utilities-me-name")
+        notification.previewSummary = message
+        notification.close()
+        notification.publish()
     }
 
     SilicaFlickable {
         id: mainView
+
         anchors.fill: parent
         contentHeight: actionList.height + Theme.paddingLarge
 
@@ -78,13 +81,13 @@ Page {
             Behavior on opacity { FadeAnimation {} }
             onDone: {
                 //% "%1: OK"
-                var message = qsTrId("sailfish-utilities-me-notification-ok").arg(name);
-                mainPage.actionIsDone("info", message);
+                var message = qsTrId("sailfish-utilities-me-notification-ok").arg(name)
+                mainPage.actionIsDone("info", message)
             }
             onError: {
-                console.log(error);
+                console.log(error)
                 //% "%1: failed"
-                var message = qsTrId("sailfish-utilities-me-notification-err").arg(name);
+                var message = qsTrId("sailfish-utilities-me-notification-err").arg(name)
                 mainPage.actionIsDone("error", message)
             }
         }

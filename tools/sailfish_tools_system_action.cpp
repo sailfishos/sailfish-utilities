@@ -40,7 +40,7 @@ struct Error : public std::exception
     std::string msg_;
 };
 
-void system(std::string const &cmd)
+void run_system(std::string const &cmd)
 {
     std::cerr << "Executing " << cmd << std::endl;
     if (::system(cmd.c_str()))
@@ -49,7 +49,7 @@ void system(std::string const &cmd)
 
 void execute_own_utility(std::string const &file_name)
 {
-    system((application_dir + "/" + file_name));
+    run_system((application_dir + "/" + file_name));
 }
 
 typedef void (*action_type)(action_ctx const*);
@@ -67,6 +67,9 @@ std::map<std::string, action_type> actions = {
     { "restart_network", [](action_ctx const *) {
             return execute_own_utility("restart_network.sh");
         }},
+    { "restart_ofono", [](action_ctx const *) {
+            return execute_own_utility("restart_ofono.sh");
+        }},
     { "localsearch_reindex", [](action_ctx const *) {
             return execute_own_utility("localsearch_reindex.sh");
         }},
@@ -76,7 +79,7 @@ std::map<std::string, action_type> actions = {
 };
 
 std::set<std::string> root_actions = {
-    "repair_rpm_db", "restart_network", "restart_fingerprint", "restart_bluetooth"
+    "repair_rpm_db", "restart_network", "restart_ofono", "restart_fingerprint", "restart_bluetooth"
 };
 
 class BecomeRoot
@@ -91,8 +94,8 @@ public:
             }
         }
     }
-private:
 
+private:
     static uid_t escalate()
     {
         auto uid = ::getuid();
@@ -149,16 +152,17 @@ int main(int argc, char *argv[])
             execute_root(it->second);
         else
             execute(it->second);
+
+        rc = 0;
     } catch (std::exception const &e) {
         std::cerr << "Error " << e.what()
                   << ". While executing action: " << name.c_str()
                   << std::endl;
     } catch (...) {
-        std::cerr << "Unknown error "
-                  << ". While executing action: " << name.c_str()
+        std::cerr << "Unknown error while executing action: " << name.c_str()
                   << std::endl;
     }
-    rc = 0;
+
     return rc;
 }
 
