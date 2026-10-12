@@ -1,4 +1,4 @@
-%bcond_with l10n
+# The GK feature repositories do not provide the optional translation pack.
 
 Summary: Sailfish Utilities
 Name: sailfish-utilities
@@ -24,11 +24,6 @@ BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(systemd)
-%if %{with l10n}
-BuildRequires: %{name}-all-translations-pack
-%define _all_translations_version %(rpm -q --queryformat "%%{version}-%%{release}" %{name}-all-translations-pack)
-Requires: %{name}-all-translations-pack >= %{_all_translations_version}
-%endif
 
 %description
 Miscellaneous Sailfish Utilities
